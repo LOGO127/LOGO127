@@ -1,11 +1,10 @@
 <div align="center">
 
-# Hi, I'm LOGO127 👋
+# Hi, I'm LOGO127
 
 **Master's student at Zhejiang University**
 
-Exploring **Large Language Models**, **AI for Science**,  
-and intelligent methods for **lithium-ion battery research**.
+Exploring **Large Language Models**, **AI for Science**, and intelligent methods for **lithium-ion battery research**.
 
 [![Python](https://img.shields.io/badge/Python-1f2937?style=flat-square&logo=python&logoColor=ffd343)](https://www.python.org/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-1f2937?style=flat-square&logo=pytorch&logoColor=ee4c2c)](https://pytorch.org/)
@@ -15,33 +14,37 @@ and intelligent methods for **lithium-ion battery research**.
 
 ## About Me
 
-I am a master's student at **Zhejiang University**, interested in the
-intersection of artificial intelligence and scientific research.
+I am a master's student at **Zhejiang University**, interested in the intersection of artificial intelligence and scientific research.
 
 My current interests include:
 
-- 🧠 **Large Language Models** — model fundamentals, training, evaluation, and RAG
-- 🔬 **AI for Science** — using AI to support scientific reasoning and knowledge discovery
-- 🔋 **Lithium-ion Batteries** — exploring data-driven and AI-assisted research methods
+- **Large Language Models**: model fundamentals, training, evaluation, and retrieval-augmented generation
+- **AI for Science**: scientific reasoning and knowledge discovery
+- **Lithium-ion Batteries**: data-driven and AI-assisted research methods
 
-I enjoy turning complex ideas into implementations, experiments, and
-well-structured technical notes.
+I enjoy turning complex ideas into implementations, experiments, and well-structured technical notes.
 
 ## What I'm Working On
 
 - Studying **Stanford CS336: Language Modeling from Scratch**
 - Implementing tokenizers, Transformer components, optimizers, and training pipelines
-- Organizing my coursework, experiments, and lecture notes into a public repository
+- Organizing coursework, experiments, and lecture notes into public, reproducible repositories
 - Exploring how language models can support scientific and battery research
 
 ## Learning Roadmap
 
 | Track | Focus | Status |
 | --- | --- | :---: |
-| CS336 Assignments | Language models from first principles | 🚧 In progress |
-| LLM Notes | Concepts, derivations, and implementation details | 📝 Organizing |
-| AI for Science | Scientific reasoning and knowledge discovery | 🌱 Exploring |
-| Battery Intelligence | AI-assisted lithium-ion battery research | 🌱 Exploring |
+| CS336 Assignments | Language models from first principles | In progress |
+| Course Notes | Concepts, derivations, diagrams, and implementation details | Published |
+| AI for Science | Scientific reasoning and knowledge discovery | Exploring |
+| Battery Intelligence | AI-assisted lithium-ion battery research | Exploring |
+
+## Featured Work
+
+[CS336 2026 Notes](https://github.com/LOGO127/cs336-2026-notes) — curated, systems-first notes covering tokenization, GPU kernels, distributed training, scaling, data, post-training, RLVR, and multimodality.
+
+The repository is intentionally selective: it publishes original explanations and study structure, while linking back to the official Stanford CS336 materials instead of redistributing course assets.
 
 ## Tools
 
@@ -49,8 +52,7 @@ well-structured technical notes.
 
 ## Learning Philosophy
 
-> Understand the idea, build the smallest version, test the assumptions,
-> and explain what happened.
+> Understand the idea, build the smallest version, test the assumptions, and explain what happened.
 
 <div align="center">
 
