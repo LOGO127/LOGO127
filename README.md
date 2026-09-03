@@ -1,61 +1,68 @@
 <div align="center">
 
-# Hi, I'm LOGO127
+# LOGO127 👋
 
-**Master's student at Zhejiang University**
+### AI Systems · LLM Foundations · AI for Science
 
-Exploring **Large Language Models**, **AI for Science**, and intelligent methods for **lithium-ion battery research**.
+Master's student at Zhejiang University. I build small, reproducible systems
+to understand language models and turn real engineering problems into clear,
+reviewable open-source work.
 
-[![Python](https://img.shields.io/badge/Python-1f2937?style=flat-square&logo=python&logoColor=ffd343)](https://www.python.org/)
-[![PyTorch](https://img.shields.io/badge/PyTorch-1f2937?style=flat-square&logo=pytorch&logoColor=ee4c2c)](https://pytorch.org/)
-[![CS336](https://img.shields.io/badge/Stanford_CS336-in_progress-b91c1c?style=flat-square)](https://cs336.stanford.edu/)
+[Projects](https://github.com/LOGO127?tab=repositories) · [Contribution log](https://github.com/LOGO127/LOGO127/blob/main/contribution-log.md)
 
 </div>
 
-## About Me
+---
 
-I am a master's student at **Zhejiang University**, interested in the intersection of artificial intelligence and scientific research.
+## What I work on
 
-My current interests include:
+| Area | Focus |
+| --- | --- |
+| **LLM foundations** | Tokenization, Transformer components, optimization, training, and evaluation |
+| **AI systems** | Local-first tools, inference workflows, reproducibility, and observability |
+| **AI for Science** | Scientific reasoning and data-driven lithium-ion battery research |
 
-- **Large Language Models**: model fundamentals, training, evaluation, and retrieval-augmented generation
-- **AI for Science**: scientific reasoning and knowledge discovery
-- **Lithium-ion Batteries**: data-driven and AI-assisted research methods
+## Featured work
 
-I enjoy turning complex ideas into implementations, experiments, and well-structured technical notes.
+| Project | What it shows |
+| --- | --- |
+| [wechat-ai-memory](https://github.com/LOGO127/wechat-ai-memory) | A local-first Windows application that turns conversations into traceable PDF, Markdown, and JSON context |
+| [CS336 Assignment 1](https://github.com/LOGO127/cs336-2026-assignment1-llm-foundations) | From-scratch BPE, Transformer, AdamW, training, generation, tests, and measured TinyStories results |
+| [cs336.2026](https://github.com/LOGO127/cs336.2026) | Systems-first notes and implementation records for Stanford CS336: Language Modeling from Scratch |
 
-## What I'm Working On
+## Open-source track
 
-- Studying **Stanford CS336: Language Modeling from Scratch**
-- Implementing tokenizers, Transformer components, optimizers, and training pipelines
-- Organizing coursework, experiments, and lecture notes into public, reproducible repositories
-- Exploring how language models can support scientific and battery research
+I prefer the engineering loop:
 
-## Learning Roadmap
+**reproduce → understand the contract → make the smallest useful change → test → explain the evidence**
 
-| Track | Focus | Status |
-| --- | --- | :---: |
-| CS336 Assignments | Language models from first principles | In progress |
-| Course Notes | Concepts, derivations, diagrams, and implementation details | Published |
-| AI for Science | Scientific reasoning and knowledge discovery | Exploring |
-| Battery Intelligence | AI-assisted lithium-ion battery research | Exploring |
+Current upstream focus: [vLLM #41230](https://github.com/vllm-project/vllm/issues/41230), a documentation task about NIXL KV connector metric aggregation semantics. The issue is currently awaiting maintainer confirmation; no contribution is claimed until an upstream change is accepted.
 
-## Featured Work
+## How I work
 
-[CS336 2026 Notes](https://github.com/LOGO127/cs336-2026-notes) — curated, systems-first notes covering tokenization, GPU kernels, distributed training, scaling, data, post-training, RLVR, and multimodality.
+- Keep public projects runnable, scoped, and honest about limitations.
+- Separate measured results from hypotheses and unfinished work.
+- Prefer narrow diffs that are easy for maintainers to review.
+- Record exact commands, environments, and reviewer feedback.
 
-The repository is intentionally selective: it publishes original explanations and study structure, while linking back to the official Stanford CS336 materials instead of redistributing course assets.
+## Now
+
+- **Studying:** Stanford CS336 and the systems behind modern LLMs
+- **Building:** reproducible AI tools and experiments with Python/PyTorch
+- **Contributing:** LLM serving correctness, documentation, and observability
+
+## Contribution log
+
+Short notes on upstream issues, reproductions, review feedback, and merged changes:
+
+- [Open-source contribution log](https://github.com/LOGO127/LOGO127/blob/main/contribution-log.md)
 
 ## Tools
 
-`Python` · `PyTorch` · `NumPy` · `Git` · `uv` · `pytest`
-
-## Learning Philosophy
-
-> Understand the idea, build the smallest version, test the assumptions, and explain what happened.
+`Python` · `PyTorch` · `NumPy` · `TypeScript` · `Git` · `uv` · `pytest`
 
 <div align="center">
 
-<sub>Building a bridge between language models and scientific discovery.</sub>
+<sub>Build the smallest version. Test the assumptions. Explain what happened.</sub>
 
 </div>
