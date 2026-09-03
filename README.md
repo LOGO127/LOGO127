@@ -36,7 +36,7 @@ I prefer the engineering loop:
 
 **reproduce → understand the contract → make the smallest useful change → test → explain the evidence**
 
-Current upstream focus: [vLLM #41230](https://github.com/vllm-project/vllm/issues/41230), a documentation task about NIXL KV connector metric aggregation semantics. The issue is currently awaiting maintainer confirmation; no contribution is claimed until an upstream change is accepted.
+Current upstream contribution: [Stanford CS336 lectures PR #47](https://github.com/stanford-cs336/lectures/pull/47) — clarifying the optimal-batch caption in Lecture 11. The PR is open and awaiting review; no merge is claimed until the upstream repository accepts it.
 
 ## How I work
 
@@ -49,7 +49,7 @@ Current upstream focus: [vLLM #41230](https://github.com/vllm-project/vllm/issue
 
 - **Studying:** Stanford CS336 and the systems behind modern LLMs
 - **Building:** reproducible AI tools and experiments with Python/PyTorch
-- **Contributing:** LLM serving correctness, documentation, and observability
+- **Contributing:** language-model systems, documentation, and reproducible engineering
 
 ## Contribution log
 
