@@ -10,6 +10,7 @@ This log records work that an upstream maintainer can verify. Status labels are 
 - **Validation:** Ruff check, Ruff format, and `git diff --check` passed; the focused test is skipped locally because `liger-kernel` is unavailable; manual tiny-MoE construction confirmed the expected `ValueError`.
 - **Upstream link:** [Hugging Face TRL PR #7038](https://github.com/huggingface/trl/pull/7038)
 - **Related issue:** [TRL issue #7009](https://github.com/huggingface/trl/issues/7009)
+- **Review follow-up:** [design and validation note](https://github.com/huggingface/trl/pull/7038#issuecomment-5531032674)
 - **Next action:** respond to maintainer feedback and revise only if requested
 
 ## 2026-09-04 — OpenAI Python PR #3790
@@ -20,6 +21,7 @@ This log records work that an upstream maintainer can verify. Status labels are 
 - **Validation:** `tests/test_streaming.py` passed (20 tests); Ruff check, Ruff format, and `git diff --check` passed.
 - **Upstream link:** [OpenAI Python PR #3790](https://github.com/openai/openai-python/pull/3790)
 - **Related issue:** [openai-python issue #2796](https://github.com/openai/openai-python/issues/2796)
+- **Review follow-up:** [SDK code-owner review request](https://github.com/openai/openai-python/pull/3790#issuecomment-5531142320)
 - **Next action:** respond to maintainer feedback and revise only if requested
 
 ## 2026-09-04 — vLLM PR #55210
