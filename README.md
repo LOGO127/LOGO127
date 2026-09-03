@@ -38,10 +38,11 @@ I prefer the engineering loop:
 
 Current upstream contributions:
 
+- [OpenAI Python PR #3790](https://github.com/openai/openai-python/pull/3790) — removes unreachable SSE error checks from the synchronous and asynchronous streaming paths.
 - [vLLM PR #55210](https://github.com/vllm-project/vllm/pull/55210) — fixes reasoning-parser boundaries when streaming deltas cross `<think>` / `</think>` markers.
 - [Stanford CS336 lectures PR #47](https://github.com/stanford-cs336/lectures/pull/47) — clarifies the optimal-batch caption in Lecture 11.
 
-Both PRs are open and awaiting maintainer review; no merge is claimed until the upstream repositories accept them.
+All three PRs are open and awaiting maintainer review; no merge is claimed until the upstream repositories accept them.
 
 ## How I work
 

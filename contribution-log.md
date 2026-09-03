@@ -2,6 +2,16 @@
 
 This log records work that an upstream maintainer can verify. Status labels are intentionally conservative.
 
+## 2026-09-04 — OpenAI Python PR #3790
+
+- **Status:** PR open; DCO passed; maintainer review pending; not merged
+- **Why this matters:** the streaming implementation contained an `sse.event == "error"` check inside a branch that only accepts events beginning with `thread.`, making that check unreachable.
+- **Scope:** remove the duplicated unreachable branch from both `Stream` and `AsyncStream`; the existing reachable SSE error handling is unchanged.
+- **Validation:** `tests/test_streaming.py` passed (20 tests); Ruff check, Ruff format, and `git diff --check` passed.
+- **Upstream link:** [OpenAI Python PR #3790](https://github.com/openai/openai-python/pull/3790)
+- **Related issue:** [openai-python issue #2796](https://github.com/openai/openai-python/issues/2796)
+- **Next action:** respond to maintainer feedback and revise only if requested
+
 ## 2026-09-04 — vLLM PR #55210
 
 - **Status:** PR open; DCO passed; maintainer review pending; not merged
