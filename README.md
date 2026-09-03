@@ -36,7 +36,12 @@ I prefer the engineering loop:
 
 **reproduce → understand the contract → make the smallest useful change → test → explain the evidence**
 
-Current upstream contribution: [Stanford CS336 lectures PR #47](https://github.com/stanford-cs336/lectures/pull/47) — clarifying the optimal-batch caption in Lecture 11. The PR is open and awaiting review; no merge is claimed until the upstream repository accepts it.
+Current upstream contributions:
+
+- [vLLM PR #55210](https://github.com/vllm-project/vllm/pull/55210) — fixes reasoning-parser boundaries when streaming deltas cross `<think>` / `</think>` markers.
+- [Stanford CS336 lectures PR #47](https://github.com/stanford-cs336/lectures/pull/47) — clarifies the optimal-batch caption in Lecture 11.
+
+Both PRs are open and awaiting maintainer review; no merge is claimed until the upstream repositories accept them.
 
 ## How I work
 
