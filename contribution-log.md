@@ -2,6 +2,16 @@
 
 This log records work that an upstream maintainer can verify. Status labels are intentionally conservative.
 
+## 2026-09-04 — Hugging Face TRL PR #7038
+
+- **Status:** PR open; PR template check passed; DCO-signed; maintainer review pending; not merged
+- **Why this matters:** the Liger fused GRPO path cannot materialize router logits, so a Mixture-of-Experts auxiliary loss would otherwise be silently omitted from the training objective.
+- **Scope:** add a GRPO fail-fast guard, document the `router_aux_loss_coef=0.0` requirement, and add an initialization regression test; DPO/KTO behavior is unchanged.
+- **Validation:** Ruff check, Ruff format, and `git diff --check` passed; the focused test is skipped locally because `liger-kernel` is unavailable; manual tiny-MoE construction confirmed the expected `ValueError`.
+- **Upstream link:** [Hugging Face TRL PR #7038](https://github.com/huggingface/trl/pull/7038)
+- **Related issue:** [TRL issue #7009](https://github.com/huggingface/trl/issues/7009)
+- **Next action:** respond to maintainer feedback and revise only if requested
+
 ## 2026-09-04 — OpenAI Python PR #3790
 
 - **Status:** PR open; DCO passed; maintainer review pending; not merged

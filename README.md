@@ -38,11 +38,12 @@ I prefer the engineering loop:
 
 Current upstream contributions:
 
+- [Hugging Face TRL PR #7038](https://github.com/huggingface/trl/pull/7038) — adds a fail-fast guard for the incompatible MoE auxiliary-loss and Liger GRPO combination.
 - [OpenAI Python PR #3790](https://github.com/openai/openai-python/pull/3790) — removes unreachable SSE error checks from the synchronous and asynchronous streaming paths.
 - [vLLM PR #55210](https://github.com/vllm-project/vllm/pull/55210) — fixes reasoning-parser boundaries when streaming deltas cross `<think>` / `</think>` markers.
 - [Stanford CS336 lectures PR #47](https://github.com/stanford-cs336/lectures/pull/47) — clarifies the optimal-batch caption in Lecture 11.
 
-All three PRs are open and awaiting maintainer review; no merge is claimed until the upstream repositories accept them.
+All four PRs are open and awaiting maintainer review; no merge is claimed until the upstream repositories accept them.
 
 ## How I work
 
