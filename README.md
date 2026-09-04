@@ -41,7 +41,7 @@ I prefer the engineering loop:
 | Area | Evidence | Current state |
 | --- | --- | --- |
 | **LLM serving** | [vLLM #55210](https://github.com/vllm-project/vllm/pull/55210) — streaming reasoning-parser boundaries | Human-approved; waiting for upstream CI |
-| **Multimodal serving** | [vLLM-Omni #7065](https://github.com/vllm-project/vllm-omni/pull/7065) — Higgs Audio v3 voice-clone token validation | Open; DCO passed; CI/review pending |
+| **Multimodal serving** | [vLLM-Omni #7065](https://github.com/vllm-project/vllm-omni/pull/7065) — Higgs Audio v3 voice-clone token validation | Open; initial CI and DCO passed; review pending |
 | **Local AI runtime** | [Ollama #18234](https://github.com/ollama/ollama/pull/18234) — rootless Linux installation | Open; mergeable; review pending |
 | **Graph ML** | [PyG #10797](https://github.com/pyg-team/pytorch_geometric/pull/10797) — ONNX-safe scatter min/max path | Open; CI passed; review pending |
 | **Vector search** | [Faiss #5574](https://github.com/facebookresearch/faiss/pull/5574) — Canberra zero-denominator correctness | Open; Meta CLA passed; import CI/review pending |
