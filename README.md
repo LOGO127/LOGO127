@@ -45,13 +45,14 @@ I prefer the engineering loop:
 | **Local AI runtime** | [Ollama #18234](https://github.com/ollama/ollama/pull/18234) — rootless Linux installation | Open; mergeable; review pending |
 | **Graph ML** | [PyG #10797](https://github.com/pyg-team/pytorch_geometric/pull/10797) — ONNX-safe scatter min/max path | Open; CI passed; review pending |
 | **Vector search** | [Faiss #5574](https://github.com/facebookresearch/faiss/pull/5574) — Canberra zero-denominator correctness | Open; Meta CLA passed; import CI/review pending |
-| **Training systems** | [LLaMA-Factory #10813](https://github.com/hiyouga/LlamaFactory/pull/10813) — tied-weight serialization · [DeepSpeed #8411](https://github.com/deepspeedai/DeepSpeed/pull/8411) — ZeRO gradient-norm fallback | Open; targeted tests passed; review pending |
+| **Training systems** | [LLaMA-Factory #10813](https://github.com/hiyouga/LlamaFactory/pull/10813) — tied-weight serialization · [GPT-NeoX #1419](https://github.com/EleutherAI/gpt-neox/pull/1419) — clean-runner CI setup · [DeepSpeed #8411](https://github.com/deepspeedai/DeepSpeed/pull/8411) — ZeRO gradient-norm fallback | Open; targeted checks passed; review pending |
 | **Runtime correctness** | [ONNX Runtime #32435](https://github.com/microsoft/onnxruntime/pull/32435) — identity transpose/Gemm fusion | Prior maintainer approval; CI test fix pushed; re-review pending; CLA pending |
 | **Kernel/compiler work** | [FlashAttention #2858](https://github.com/Dao-AILab/flash-attention/pull/2858) · [Triton #11580](https://github.com/triton-lang/triton/pull/11580) | Open; hardware CI/review pending |
 
 <details>
-<summary>Full upstream contribution log · 14 open PRs</summary>
+<summary>Full upstream contribution log · 15 open PRs</summary>
 
+- [GPT-NeoX #1419](https://github.com/EleutherAI/gpt-neox/pull/1419) — installs the test job's dependencies before its dataset-preparation import path runs on a clean CI worker.
 - [vLLM-Omni #7065](https://github.com/vllm-project/vllm-omni/pull/7065) — keeps Higgs Audio v3 voice-clone prompts vocabulary-valid while preserving reference-audio embedding positions across chunked prefill.
 - [LLaMA-Factory #10813](https://github.com/hiyouga/LlamaFactory/pull/10813) — restores tied-parameter aliases lost while DeepSpeed gathers a full state dict, preventing redundant Qwen3 `lm_head` serialization.
 - [Ollama #18234](https://github.com/ollama/ollama/pull/18234) — documents a user-local Linux installation under `~/.local`, including PATH and architecture/backend variants.

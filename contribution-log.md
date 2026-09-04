@@ -2,6 +2,16 @@
 
 This log records work that an upstream maintainer can verify. Status labels are intentionally conservative.
 
+## 2026-09-05 — GPT-NeoX PR #1419
+
+- **Status:** PR open and mergeable; maintainer review pending; no upstream checks reported yet; not merged
+- **Why this matters:** the pull-request test job ran `prepare_data.py` before installing PyTorch and the project's dataset dependencies, so a clean runner could fail before dependency installation.
+- **Scope:** move only the existing data-preparation step after the pytest, PyTorch, and project-requirements installation steps, matching the order already used by the CPU CI workflow.
+- **Validation:** all repository pre-commit hooks passed for the workflow file; the YAML parsed successfully; an explicit ordering assertion confirmed dependency installation precedes data preparation, which precedes the test invocation.
+- **Upstream link:** [GPT-NeoX PR #1419](https://github.com/EleutherAI/gpt-neox/pull/1419)
+- **Related issue:** [GPT-NeoX issue #1413](https://github.com/EleutherAI/gpt-neox/issues/1413)
+- **Next action:** monitor CLA/check status and maintainer review; revise only in response to concrete feedback.
+
 ## 2026-09-05 — LLaMA-Factory PR #10813
 
 - **Status:** PR open and mergeable; maintainer review and upstream CI pending; not merged
