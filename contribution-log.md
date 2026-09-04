@@ -66,8 +66,8 @@ This log records work that an upstream maintainer can verify. Status labels are 
 - **Validation:** focused pytest passed (3 tests); DeepSpeed pre-commit hooks, compileall, and `git diff --check` passed.
 - **Upstream link:** [DeepSpeed PR #8411](https://github.com/deepspeedai/DeepSpeed/pull/8411)
 - **Related issue:** [DeepSpeed issue #8371](https://github.com/deepspeedai/DeepSpeed/issues/8371)
-- **CI follow-up:** [remote DeepSpeedAI CI run](https://github.com/deepspeedai/DeepSpeed/actions/runs/33842132211) completed successfully; [ready-for-review note](https://github.com/deepspeedai/DeepSpeed/pull/8411#issuecomment-5537765677)
-- **Next action:** respond to maintainer feedback and revise only if requested
+- **CI follow-up:** [remote DeepSpeedAI CI run](https://github.com/deepspeedai/DeepSpeed/actions/runs/33842132211) completed successfully; [ready-for-review note](https://github.com/deepspeedai/DeepSpeed/pull/8411#issuecomment-5537765677); [single gentle follow-up](https://github.com/deepspeedai/DeepSpeed/pull/8411#issuecomment-5543535064)
+- **Next action:** wait for maintainer feedback and revise only if requested
 
 ## 2026-09-04 — FlashAttention PR #2858
 
