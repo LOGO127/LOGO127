@@ -26,11 +26,13 @@ This log records work that an upstream maintainer can verify. Status labels are 
 
 ## 2026-09-04 — vLLM PR #55210
 
-- **Status:** PR open; DCO passed; maintainer review pending; not merged
+- **Status:** PR open; DCO passed; maintainer approval received; upstream CI/merge pending; not merged
 - **Why this matters:** grouped streaming deltas could leak a reasoning start marker or drop content emitted after `</think>`.
 - **Scope:** two reasoning-parser paths and focused regression coverage; no model-serving or GPU behavior changed.
 - **Validation:** 41 reasoning tests passed; Ruff check, Ruff format, typos, and `git diff --check` passed.
 - **Upstream link:** [vLLM PR #55210](https://github.com/vllm-project/vllm/pull/55210)
+- **Review:** [maintainer approval and regression verification](https://github.com/vllm-project/vllm/pull/55210#pullrequestreview-5106377985)
+- **CI follow-up:** [request for a write-access reviewer to trigger upstream CI](https://github.com/vllm-project/vllm/pull/55210#issuecomment-5535327497)
 - **Next action:** respond to maintainer feedback and revise only if requested
 
 ## 2026-09-04 — Stanford CS336 lectures PR #47

@@ -43,7 +43,7 @@ Current upstream contributions:
 - [vLLM PR #55210](https://github.com/vllm-project/vllm/pull/55210) — fixes reasoning-parser boundaries when streaming deltas cross `<think>` / `</think>` markers.
 - [Stanford CS336 lectures PR #47](https://github.com/stanford-cs336/lectures/pull/47) — clarifies the optimal-batch caption in Lecture 11.
 
-All four PRs are open and awaiting maintainer review; no merge is claimed until the upstream repositories accept them.
+Three PRs are awaiting maintainer review; vLLM #55210 has a maintainer approval and is waiting for upstream CI and merge. No merge is claimed until the upstream repositories accept the changes.
 
 ## How I work
 
