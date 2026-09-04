@@ -42,8 +42,10 @@ Current upstream contributions:
 - [OpenAI Python PR #3790](https://github.com/openai/openai-python/pull/3790) — removes unreachable SSE error checks from the synchronous and asynchronous streaming paths.
 - [vLLM PR #55210](https://github.com/vllm-project/vllm/pull/55210) — fixes reasoning-parser boundaries when streaming deltas cross `<think>` / `</think>` markers.
 - [Stanford CS336 lectures PR #47](https://github.com/stanford-cs336/lectures/pull/47) — clarifies the optimal-batch caption in Lecture 11.
+- [SGLang PR #37935](https://github.com/sgl-project/sglang/pull/37935) — reports tensor-backed DeepSeek-V4 KV-cache memory usage across pooled storage layouts.
+- [DeepSpeed PR #8411](https://github.com/deepspeedai/DeepSpeed/pull/8411) — removes an invalid ZeRO gradient-norm fallback and adds a CPU regression test.
 
-Three PRs are awaiting maintainer review; vLLM #55210 has a maintainer approval and is waiting for upstream CI and merge. No merge is claimed until the upstream repositories accept the changes.
+Six PRs are open across model training, inference, serving, SDK, and course infrastructure. vLLM #55210 has maintainer approval and is waiting for upstream CI and merge; the other PRs are awaiting review or CI as applicable. No merge is claimed until the upstream repositories accept the changes.
 
 ## How I work
 

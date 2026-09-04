@@ -46,6 +46,27 @@ This log records work that an upstream maintainer can verify. Status labels are 
 - **Upstream link:** [Stanford CS336 lectures PR #47](https://github.com/stanford-cs336/lectures/pull/47)
 - **Next action:** respond to maintainer feedback and revise only if requested
 
+## 2026-09-04 — SGLang PR #37935
+
+- **Status:** PR open; mergeable; CI label/review pending; not merged
+- **Why this matters:** DeepSeek-V4 KV-cache pools can allocate tensor-backed storage while the exported `kv_cache_memory_usage_gb` metric remains zero.
+- **Scope:** account for single, indexer, unified, SWA/C4/C128, and compression-state buffers, including backend-specific indexer layouts.
+- **Validation:** targeted tensor-accounting checks loaded the production source with CPU Torch; Ruff hook checks, formatting, compileall, and `git diff --check` passed. Full repository pytest collection is Linux/Triton-dependent and was not run on Windows.
+- **Upstream link:** [SGLang PR #37935](https://github.com/sgl-project/sglang/pull/37935)
+- **Related issue:** [SGLang issue #37852](https://github.com/sgl-project/sglang/issues/37852)
+- **CI follow-up:** [request for a maintainer to enable the gated CI](https://github.com/sgl-project/sglang/pull/37935#issuecomment-5536229076)
+- **Next action:** respond to maintainer feedback and revise only if requested
+
+## 2026-09-04 — DeepSpeed PR #8411
+
+- **Status:** PR open; DCO passed; CI/review pending; not merged
+- **Why this matters:** the ZeRO CPU-offload gradient-norm path fell back to `param.grad` even when the configured gradient attribute was absent, although that source had already been moved and cleared.
+- **Scope:** use the selected gradient attribute directly, fail clearly when it is missing, and cover both configured attribute paths plus the stale fallback regression.
+- **Validation:** focused pytest passed (3 tests); DeepSpeed pre-commit hooks, compileall, and `git diff --check` passed.
+- **Upstream link:** [DeepSpeed PR #8411](https://github.com/deepspeedai/DeepSpeed/pull/8411)
+- **Related issue:** [DeepSpeed issue #8371](https://github.com/deepspeedai/DeepSpeed/issues/8371)
+- **Next action:** respond to maintainer feedback and revise only if requested
+
 ## Rules
 
 - Never write “merged” until the upstream PR is actually merged.
