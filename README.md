@@ -34,12 +34,14 @@ I prefer the engineering loop:
 
 **reproduce → understand the contract → make the smallest useful change → test → explain the evidence**
 
+**Merged upstream:** [vLLM-Omni #7065](https://github.com/vllm-project/vllm-omni/pull/7065) — fixed Higgs Audio v3 voice-clone token validation while preserving reference-audio placement across chunked prefill.
+
 ### Selected signals
 
 | Area | Evidence | Current state |
 | --- | --- | --- |
 | **LLM serving** | [vLLM #55210](https://github.com/vllm-project/vllm/pull/55210) — streaming reasoning-parser boundaries | Human-approved; waiting for upstream CI |
-| **Multimodal serving** | [vLLM-Omni #7065](https://github.com/vllm-project/vllm-omni/pull/7065) — Higgs Audio v3 voice-clone token validation | Collaborator feedback addressed; core CI passed; approval pending |
+| **Multimodal serving** | [vLLM-Omni #7065](https://github.com/vllm-project/vllm-omni/pull/7065) — Higgs Audio v3 voice-clone token validation | **Merged** after collaborator review; core CI passed |
 | **Local AI runtime** | [Ollama #18234](https://github.com/ollama/ollama/pull/18234) — rootless Linux installation | Open; mergeable; review pending |
 | **Graph ML** | [PyG #10797](https://github.com/pyg-team/pytorch_geometric/pull/10797) — ONNX-safe scatter min/max path | Open; CI passed; review pending |
 | **Vector search** | [Faiss #5574](https://github.com/facebookresearch/faiss/pull/5574) — Canberra zero-denominator correctness | Open; Meta CLA passed; import CI/review pending |
@@ -49,11 +51,11 @@ I prefer the engineering loop:
 | **Kernel/compiler work** | [FlashAttention #2858](https://github.com/Dao-AILab/flash-attention/pull/2858) · [Triton #11580](https://github.com/triton-lang/triton/pull/11580) | Open; hardware CI/review pending |
 
 <details>
-<summary>Full upstream contribution log · 16 open PRs</summary>
+<summary>Full upstream contribution log · 1 merged + 15 open PRs</summary>
 
 - [bitsandbytes #2073](https://github.com/bitsandbytes-foundation/bitsandbytes/pull/2073) — lets restricted ROCm containers provide a validated GPU architecture without invoking an unavailable `rocminfo` binary.
 - [GPT-NeoX #1419](https://github.com/EleutherAI/gpt-neox/pull/1419) — installs the test job's dependencies before its dataset-preparation import path runs on a clean CI worker.
-- [vLLM-Omni #7065](https://github.com/vllm-project/vllm-omni/pull/7065) — keeps Higgs Audio v3 voice-clone prompts vocabulary-valid while preserving reference-audio embedding positions across chunked prefill.
+- **Merged:** [vLLM-Omni #7065](https://github.com/vllm-project/vllm-omni/pull/7065) — keeps Higgs Audio v3 voice-clone prompts vocabulary-valid while preserving reference-audio embedding positions across chunked prefill.
 - [LLaMA-Factory #10813](https://github.com/hiyouga/LlamaFactory/pull/10813) — restores tied-parameter aliases lost while DeepSpeed gathers a full state dict, preventing redundant Qwen3 `lm_head` serialization.
 - [Ollama #18234](https://github.com/ollama/ollama/pull/18234) — documents a user-local Linux installation under `~/.local`, including PATH and architecture/backend variants.
 - [PyTorch Geometric #10797](https://github.com/pyg-team/pytorch_geometric/pull/10797) — avoids Tensor-valued fill arguments in the ONNX scatter path and adds regression coverage.

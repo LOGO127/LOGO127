@@ -34,14 +34,14 @@ This log records work that an upstream maintainer can verify. Status labels are 
 
 ## 2026-09-05 — vLLM-Omni PR #7065
 
-- **Status:** PR open and mergeable; collaborator feedback addressed; DCO, Python 3.11/3.12 wheel builds, pre-commit, generic Buildkite, Intel CI, and Read the Docs passed; NPU CI pending; AMD CI failed in unrelated SenseNova tests; approval pending; not merged
+- **Status:** **Merged upstream** on 2026-09-04 at 23:06 UTC after collaborator approval; DCO, Python 3.11/3.12 wheel builds, pre-commit, generic Buildkite, Intel CI, NPU CI, and Read the Docs passed; AMD CI's unrelated SenseNova failure was reviewed and treated as non-blocking
 - **Why this matters:** vLLM 0.28.0 correctly rejects negative prompt token IDs, but Higgs Audio v3 voice cloning used `-100` sentinels for reference-audio embeddings, so requests failed before reaching the model.
 - **Scope:** replace model-local sentinels with a vocabulary-valid non-audio filler before engine submission, carry their absolute prompt positions as tensor metadata, map reference-code rows correctly during full or chunked prefill, retain the legacy internal fallback, and keep the existing offline example consistent.
 - **Validation:** four targeted CPU regression tests passed for vocabulary-valid prompt preparation, full prefill, chunked prefill, and the legacy fallback; an isolated online-serving prompt smoke check passed; all applicable non-mypy pre-commit hooks passed. The current upstream files contain pre-existing mypy failures, and the H100/model E2E test was not runnable locally on Windows.
 - **Upstream link:** [vLLM-Omni PR #7065](https://github.com/vllm-project/vllm-omni/pull/7065)
 - **Related issue:** [vLLM-Omni issue #6837](https://github.com/vllm-project/vllm-omni/issues/6837)
-- **Review follow-up:** [author self-review and automated-review request](https://github.com/vllm-project/vllm-omni/pull/7065#issuecomment-5545802035); ReviewBot classified the fix as high priority; the collaborator's filler-token concern was [addressed with a non-audio token and stronger assertions](https://github.com/vllm-project/vllm-omni/pull/7065#issuecomment-5547166094)
-- **Next action:** monitor CI and maintainer review; revise only in response to concrete failures or feedback.
+- **Review follow-up:** [author self-review and automated-review request](https://github.com/vllm-project/vllm-omni/pull/7065#issuecomment-5545802035); ReviewBot classified the fix as high priority; the collaborator's filler-token concern was [addressed with a non-audio token and stronger assertions](https://github.com/vllm-project/vllm-omni/pull/7065#issuecomment-5547166094); collaborator `linyueqian` then [approved the final commit](https://github.com/vllm-project/vllm-omni/pull/7065#pullrequestreview-5118503539) and merged it
+- **Outcome:** 190 additions and 37 deletions across six files; regression coverage ran in upstream CI (`1787 passed, 1 skipped, 610 deselected` in the relevant lane).
 
 ## 2026-09-05 — Ollama PR #18234
 
