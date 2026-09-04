@@ -2,15 +2,25 @@
 
 This log records work that an upstream maintainer can verify. Status labels are intentionally conservative.
 
+## 2026-09-05 — bitsandbytes PR #2073
+
+- **Status:** PR open and mergeable; upstream CI and maintainer review pending; not merged
+- **Why this matters:** production ROCm containers may intentionally omit `rocminfo`, leaving bitsandbytes unable to identify the active `gfx` architecture even when the operator already knows it.
+- **Scope:** accept a validated runtime `BNB_ROCM_ARCH` override before the existing tool probe, normalize feature-qualified architecture strings, preserve the current fallback when the variable is absent, and document the distinction from the build-time CMake option.
+- **Validation:** `tests/test_cuda_setup_evaluator.py` passed (13 tests); focused Ruff lint and formatting checks passed; all repository pre-commit hooks passed for the three changed files; `git diff --check` passed.
+- **Upstream link:** [bitsandbytes PR #2073](https://github.com/bitsandbytes-foundation/bitsandbytes/pull/2073)
+- **Related issue:** [bitsandbytes issue #1444](https://github.com/bitsandbytes-foundation/bitsandbytes/issues/1444)
+- **Next action:** monitor upstream CI and maintainer review; revise only in response to concrete failures or feedback.
+
 ## 2026-09-05 — GPT-NeoX PR #1419
 
-- **Status:** PR open and mergeable; maintainer review pending; no upstream checks reported yet; not merged
+- **Status:** PR open and mergeable; CLA signature and maintainer review pending; not merged
 - **Why this matters:** the pull-request test job ran `prepare_data.py` before installing PyTorch and the project's dataset dependencies, so a clean runner could fail before dependency installation.
 - **Scope:** move only the existing data-preparation step after the pytest, PyTorch, and project-requirements installation steps, matching the order already used by the CPU CI workflow.
 - **Validation:** all repository pre-commit hooks passed for the workflow file; the YAML parsed successfully; an explicit ordering assertion confirmed dependency installation precedes data preparation, which precedes the test invocation.
 - **Upstream link:** [GPT-NeoX PR #1419](https://github.com/EleutherAI/gpt-neox/pull/1419)
 - **Related issue:** [GPT-NeoX issue #1413](https://github.com/EleutherAI/gpt-neox/issues/1413)
-- **Next action:** monitor CLA/check status and maintainer review; revise only in response to concrete feedback.
+- **Next action:** complete the CLA personally, then monitor maintainer review and revise only in response to concrete feedback.
 
 ## 2026-09-05 — LLaMA-Factory PR #10813
 
@@ -24,13 +34,13 @@ This log records work that an upstream maintainer can verify. Status labels are 
 
 ## 2026-09-05 — vLLM-Omni PR #7065
 
-- **Status:** PR open; mergeable; DCO, Python 3.11/3.12 wheel builds, pre-commit, and Read the Docs passed; maintainer review pending; not merged
+- **Status:** PR open and mergeable; collaborator feedback addressed; DCO, Python 3.11/3.12 wheel builds, pre-commit, generic Buildkite, Intel CI, and Read the Docs passed; NPU CI pending; AMD CI failed in unrelated SenseNova tests; approval pending; not merged
 - **Why this matters:** vLLM 0.28.0 correctly rejects negative prompt token IDs, but Higgs Audio v3 voice cloning used `-100` sentinels for reference-audio embeddings, so requests failed before reaching the model.
-- **Scope:** replace model-local sentinels with a valid tokenizer ID before engine submission, carry their absolute prompt positions as tensor metadata, map reference-code rows correctly during full or chunked prefill, retain the legacy internal fallback, and keep the existing offline example consistent.
+- **Scope:** replace model-local sentinels with a vocabulary-valid non-audio filler before engine submission, carry their absolute prompt positions as tensor metadata, map reference-code rows correctly during full or chunked prefill, retain the legacy internal fallback, and keep the existing offline example consistent.
 - **Validation:** four targeted CPU regression tests passed for vocabulary-valid prompt preparation, full prefill, chunked prefill, and the legacy fallback; an isolated online-serving prompt smoke check passed; all applicable non-mypy pre-commit hooks passed. The current upstream files contain pre-existing mypy failures, and the H100/model E2E test was not runnable locally on Windows.
 - **Upstream link:** [vLLM-Omni PR #7065](https://github.com/vllm-project/vllm-omni/pull/7065)
 - **Related issue:** [vLLM-Omni issue #6837](https://github.com/vllm-project/vllm-omni/issues/6837)
-- **Review follow-up:** [author self-review and automated-review request](https://github.com/vllm-project/vllm-omni/pull/7065#issuecomment-5545802035); ReviewBot classified the fix as high priority
+- **Review follow-up:** [author self-review and automated-review request](https://github.com/vllm-project/vllm-omni/pull/7065#issuecomment-5545802035); ReviewBot classified the fix as high priority; the collaborator's filler-token concern was [addressed with a non-audio token and stronger assertions](https://github.com/vllm-project/vllm-omni/pull/7065#issuecomment-5547166094)
 - **Next action:** monitor CI and maintainer review; revise only in response to concrete failures or feedback.
 
 ## 2026-09-05 — Ollama PR #18234
