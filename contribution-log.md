@@ -67,6 +67,16 @@ This log records work that an upstream maintainer can verify. Status labels are 
 - **Related issue:** [DeepSpeed issue #8371](https://github.com/deepspeedai/DeepSpeed/issues/8371)
 - **Next action:** respond to maintainer feedback and revise only if requested
 
+## 2026-09-04 — FlashAttention PR #2858
+
+- **Status:** PR open; mergeable; upstream GPU CI/review pending; not merged
+- **Why this matters:** FA4 backward preprocessing can fail to compile on padded head dimensions because each row copy receives a predicate with the unsliced tile shape.
+- **Scope:** slice the head-dimension predicate with the same row index used for `O` and `dO` before both copies; the unpredicated path is unchanged.
+- **Validation:** Ruff check, Ruff format, Python compilation, and `git diff --check` passed. CUDA/CuTe execution was not available locally on Windows and is explicitly left to upstream CI.
+- **Upstream link:** [FlashAttention PR #2858](https://github.com/Dao-AILab/flash-attention/pull/2858)
+- **Related issue:** [FlashAttention issue #2852](https://github.com/Dao-AILab/flash-attention/issues/2852)
+- **Next action:** respond to maintainer feedback and revise only if requested
+
 ## Rules
 
 - Never write “merged” until the upstream PR is actually merged.

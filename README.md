@@ -44,8 +44,9 @@ Current upstream contributions:
 - [Stanford CS336 lectures PR #47](https://github.com/stanford-cs336/lectures/pull/47) — clarifies the optimal-batch caption in Lecture 11.
 - [SGLang PR #37935](https://github.com/sgl-project/sglang/pull/37935) — reports tensor-backed DeepSeek-V4 KV-cache memory usage across pooled storage layouts.
 - [DeepSpeed PR #8411](https://github.com/deepspeedai/DeepSpeed/pull/8411) — removes an invalid ZeRO gradient-norm fallback and adds a CPU regression test.
+- [FlashAttention PR #2858](https://github.com/Dao-AILab/flash-attention/pull/2858) — slices FA4 backward-preprocess predicates per row for padded head dimensions.
 
-Six PRs are open across model training, inference, serving, SDK, and course infrastructure. vLLM #55210 has maintainer approval and is waiting for upstream CI and merge; the other PRs are awaiting review or CI as applicable. No merge is claimed until the upstream repositories accept the changes.
+Seven PRs are open across model training, inference, serving, SDK, CUDA kernels, and course infrastructure. vLLM #55210 has maintainer approval and is waiting for upstream CI and merge; the other PRs are awaiting review or CI as applicable. No merge is claimed until the upstream repositories accept the changes.
 
 ## How I work
 
