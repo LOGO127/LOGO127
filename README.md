@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="https://raw.githubusercontent.com/LOGO127/LOGO127/main/assets/header.svg" alt="LOGO127 — AI Systems, LLM Training, and Inference" width="100%" />
+
 # LOGO127 👋
 
 ### AI Systems · LLM Foundations · AI for Science
