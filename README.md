@@ -30,25 +30,37 @@ reviewable open-source work.
 | [CS336 Assignment 1](https://github.com/LOGO127/cs336-2026-assignment1-llm-foundations) | From-scratch BPE, Transformer, AdamW, training, generation, tests, and measured TinyStories results |
 | [cs336.2026](https://github.com/LOGO127/cs336.2026) | Systems-first notes and implementation records for Stanford CS336: Language Modeling from Scratch |
 
-## Open-source track
+## Open-source work
 
 I prefer the engineering loop:
 
 **reproduce → understand the contract → make the smallest useful change → test → explain the evidence**
 
-Current upstream contributions:
+### Selected signals
 
-- [Hugging Face TRL PR #7038](https://github.com/huggingface/trl/pull/7038) — adds a fail-fast guard for the incompatible MoE auxiliary-loss and Liger GRPO combination.
-- [OpenAI Python PR #3790](https://github.com/openai/openai-python/pull/3790) — removes unreachable SSE error checks from the synchronous and asynchronous streaming paths.
-- [vLLM PR #55210](https://github.com/vllm-project/vllm/pull/55210) — fixes reasoning-parser boundaries when streaming deltas cross `<think>` / `</think>` markers.
-- [Stanford CS336 lectures PR #47](https://github.com/stanford-cs336/lectures/pull/47) — clarifies the optimal-batch caption in Lecture 11.
-- [SGLang PR #37935](https://github.com/sgl-project/sglang/pull/37935) — reports tensor-backed DeepSeek-V4 KV-cache memory usage across pooled storage layouts.
-- [DeepSpeed PR #8411](https://github.com/deepspeedai/DeepSpeed/pull/8411) — removes an invalid ZeRO gradient-norm fallback and adds a CPU regression test.
-- [FlashAttention PR #2858](https://github.com/Dao-AILab/flash-attention/pull/2858) — slices FA4 backward-preprocess predicates per row for padded head dimensions.
-- [Triton PR #11580](https://github.com/triton-lang/triton/pull/11580) — makes autotuner arguments thread-local and adds a deterministic concurrency regression test.
-- [ONNX Runtime PR #32435](https://github.com/microsoft/onnxruntime/pull/32435) — prevents identity transposes from being folded into invalid Gemm `transB` rewrites.
+| Area | Evidence | Current state |
+| --- | --- | --- |
+| **LLM serving** | [vLLM #55210](https://github.com/vllm-project/vllm/pull/55210) — streaming reasoning-parser boundaries | Human-approved; waiting for upstream CI |
+| **Training systems** | [DeepSpeed #8411](https://github.com/deepspeedai/DeepSpeed/pull/8411) — ZeRO gradient-norm fallback | Open; remote test running |
+| **Runtime correctness** | [ONNX Runtime #32435](https://github.com/microsoft/onnxruntime/pull/32435) — identity transpose/Gemm fusion | Open; regression coverage added; CLA pending |
+| **Kernel/compiler work** | [FlashAttention #2858](https://github.com/Dao-AILab/flash-attention/pull/2858) · [Triton #11580](https://github.com/triton-lang/triton/pull/11580) | Open; hardware CI/review pending |
 
-Nine PRs are open across model training, inference, serving, SDK, graph optimization, compiler/runtime, CUDA kernels, and course infrastructure. vLLM #55210 has maintainer approval and is waiting for upstream CI and merge; ONNX Runtime #32435 is waiting for CLA completion; the other PRs are awaiting review or CI as applicable. No merge is claimed until the upstream repositories accept the changes.
+<details>
+<summary>Full upstream contribution log · 9 open PRs</summary>
+
+- [Hugging Face TRL #7038](https://github.com/huggingface/trl/pull/7038) — fail-fast guard for the incompatible MoE auxiliary-loss and Liger GRPO combination.
+- [OpenAI Python #3790](https://github.com/openai/openai-python/pull/3790) — removes unreachable SSE error checks from sync and async streaming paths.
+- [vLLM #55210](https://github.com/vllm-project/vllm/pull/55210) — fixes reasoning-parser boundaries across `<think>` / `</think>` markers.
+- [Stanford CS336 lectures #47](https://github.com/stanford-cs336/lectures/pull/47) — clarifies the Lecture 11 optimal-batch caption.
+- [SGLang #37935](https://github.com/sgl-project/sglang/pull/37935) — reports tensor-backed DeepSeek-V4 KV-cache memory across pooled layouts.
+- [DeepSpeed #8411](https://github.com/deepspeedai/DeepSpeed/pull/8411) — removes an invalid ZeRO gradient-norm fallback and adds a CPU regression test.
+- [FlashAttention #2858](https://github.com/Dao-AILab/flash-attention/pull/2858) — slices FA4 backward-preprocess predicates per row for padded head dimensions.
+- [Triton #11580](https://github.com/triton-lang/triton/pull/11580) — makes autotuner arguments thread-local and adds a deterministic concurrency test.
+- [ONNX Runtime #32435](https://github.com/microsoft/onnxruntime/pull/32435) — prevents identity transposes from being folded into invalid Gemm `transB` rewrites.
+
+</details>
+
+No merge is claimed until an upstream repository accepts the change; detailed reproductions, commands, limitations, and review notes live in the [contribution log](https://github.com/LOGO127/LOGO127/blob/main/contribution-log.md).
 
 ## How I work
 
