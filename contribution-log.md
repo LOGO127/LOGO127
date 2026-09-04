@@ -59,12 +59,13 @@ This log records work that an upstream maintainer can verify. Status labels are 
 
 ## 2026-09-04 — DeepSpeed PR #8411
 
-- **Status:** PR open; DCO passed; CI/review pending; not merged
+- **Status:** PR open; DCO and remote CI passed; maintainer review pending; not merged
 - **Why this matters:** the ZeRO CPU-offload gradient-norm path fell back to `param.grad` even when the configured gradient attribute was absent, although that source had already been moved and cleared.
 - **Scope:** use the selected gradient attribute directly, fail clearly when it is missing, and cover both configured attribute paths plus the stale fallback regression.
 - **Validation:** focused pytest passed (3 tests); DeepSpeed pre-commit hooks, compileall, and `git diff --check` passed.
 - **Upstream link:** [DeepSpeed PR #8411](https://github.com/deepspeedai/DeepSpeed/pull/8411)
 - **Related issue:** [DeepSpeed issue #8371](https://github.com/deepspeedai/DeepSpeed/issues/8371)
+- **CI follow-up:** [remote DeepSpeedAI CI run](https://github.com/deepspeedai/DeepSpeed/actions/runs/33842132211) completed successfully; [ready-for-review note](https://github.com/deepspeedai/DeepSpeed/pull/8411#issuecomment-5537765677)
 - **Next action:** respond to maintainer feedback and revise only if requested
 
 ## 2026-09-04 — FlashAttention PR #2858
