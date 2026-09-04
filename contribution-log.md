@@ -2,6 +2,16 @@
 
 This log records work that an upstream maintainer can verify. Status labels are intentionally conservative.
 
+## 2026-09-05 — Ollama PR #18234
+
+- **Status:** PR open; mergeable; maintainer review pending; not merged
+- **Why this matters:** the Linux manual-install instructions required `sudo`, even though the release archive can run correctly from a user-writable prefix for developers without root access.
+- **Scope:** document extraction under `$HOME/.local`, adding the user-local binary directory to `PATH`, and the matching ARM64 and AMD ROCm archive variants.
+- **Validation:** `git diff --check` passed; the branch was synchronized with current upstream `main` before submission. This is a documentation-only change, and the repository test workflow excludes `docs/**`.
+- **Upstream link:** [Ollama PR #18234](https://github.com/ollama/ollama/pull/18234)
+- **Related issue:** [Ollama issue #18215](https://github.com/ollama/ollama/issues/18215)
+- **Next action:** wait for maintainer review and revise only if requested.
+
 ## 2026-09-05 — Faiss PR #5574
 
 - **Status:** PR open; mergeable; Meta CLA signed and check passed; compiled CI queued; review pending; not merged

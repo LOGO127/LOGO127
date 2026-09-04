@@ -41,6 +41,7 @@ I prefer the engineering loop:
 | Area | Evidence | Current state |
 | --- | --- | --- |
 | **LLM serving** | [vLLM #55210](https://github.com/vllm-project/vllm/pull/55210) — streaming reasoning-parser boundaries | Human-approved; waiting for upstream CI |
+| **Local AI runtime** | [Ollama #18234](https://github.com/ollama/ollama/pull/18234) — rootless Linux installation | Open; mergeable; review pending |
 | **Graph ML** | [PyG #10797](https://github.com/pyg-team/pytorch_geometric/pull/10797) — ONNX-safe scatter min/max path | Open; CI passed; review pending |
 | **Vector search** | [Faiss #5574](https://github.com/facebookresearch/faiss/pull/5574) — Canberra zero-denominator correctness | Open; Meta CLA passed; import CI/review pending |
 | **Training systems** | [DeepSpeed #8411](https://github.com/deepspeedai/DeepSpeed/pull/8411) — ZeRO gradient-norm fallback | Open; remote CI passed; review pending |
@@ -48,8 +49,9 @@ I prefer the engineering loop:
 | **Kernel/compiler work** | [FlashAttention #2858](https://github.com/Dao-AILab/flash-attention/pull/2858) · [Triton #11580](https://github.com/triton-lang/triton/pull/11580) | Open; hardware CI/review pending |
 
 <details>
-<summary>Full upstream contribution log · 11 open PRs</summary>
+<summary>Full upstream contribution log · 12 open PRs</summary>
 
+- [Ollama #18234](https://github.com/ollama/ollama/pull/18234) — documents a user-local Linux installation under `~/.local`, including PATH and architecture/backend variants.
 - [PyTorch Geometric #10797](https://github.com/pyg-team/pytorch_geometric/pull/10797) — avoids Tensor-valued fill arguments in the ONNX scatter path and adds regression coverage.
 - [Faiss #5574](https://github.com/facebookresearch/faiss/pull/5574) — treats shared-zero Canberra terms as zero and protects `IndexFlat.search` from NaN results.
 - [Hugging Face TRL #7038](https://github.com/huggingface/trl/pull/7038) — fail-fast guard for the incompatible MoE auxiliary-loss and Liger GRPO combination.
