@@ -77,6 +77,16 @@ This log records work that an upstream maintainer can verify. Status labels are 
 - **Related issue:** [FlashAttention issue #2852](https://github.com/Dao-AILab/flash-attention/issues/2852)
 - **Next action:** respond to maintainer feedback and revise only if requested
 
+## 2026-09-04 — Triton PR #11580
+
+- **Status:** PR open; mergeable; upstream CI/review pending; not merged
+- **Why this matters:** concurrent autotuning of the same kernel could let one thread clear the shared `nargs` field while another thread was still benchmarking, causing a `NoneType` mapping error.
+- **Scope:** store `Autotuner.nargs` in thread-local storage and add a deterministic regression test that overlaps two cold-cache autotuning runs for the same key.
+- **Validation:** Triton’s fixed pre-commit hooks passed, including Ruff, YAPF, mypy, AST, and secret checks; Python compilation and `git diff --check` passed. Targeted pytest was not run locally because this Windows checkout lacks Triton’s compiled `_C` extension and CUDA runtime.
+- **Upstream link:** [Triton PR #11580](https://github.com/triton-lang/triton/pull/11580)
+- **Related issue:** [Triton issue #11494](https://github.com/triton-lang/triton/issues/11494)
+- **Next action:** respond to maintainer feedback and revise only if requested
+
 ## Rules
 
 - Never write “merged” until the upstream PR is actually merged.
