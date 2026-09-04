@@ -2,6 +2,17 @@
 
 This log records work that an upstream maintainer can verify. Status labels are intentionally conservative.
 
+## 2026-09-05 — Faiss PR #5574
+
+- **Status:** PR open; mergeable; Meta CLA action required; compiled CI queued; review pending; not merged
+- **Why this matters:** `METRIC_Canberra` evaluated `0 / 0` when both vectors were zero in a dimension, producing `NaN` and causing `IndexFlat.search` to retain `FLT_MAX/-1` empty-result sentinels.
+- **Scope:** skip the zero-denominator term so it contributes `0`, and add regression coverage for both `pairwise_distances` and `IndexFlat.search`.
+- **Validation:** reproduced the reported behavior with the installed Faiss 1.12.0 package; Python test syntax, targeted Ruff checks, and `git diff --check` passed. A full C++ build was not available locally because the Windows environment lacks CMake/C++ tooling.
+- **Upstream link:** [Faiss PR #5574](https://github.com/facebookresearch/faiss/pull/5574)
+- **Related issue:** [Faiss issue #5557](https://github.com/facebookresearch/faiss/issues/5557)
+- **CI:** [Meta CLA check](https://github.com/facebookresearch/faiss/pull/5574) currently requires contributor action; import checks are queued.
+- **Next action:** complete the Meta CLA personally, then wait for compiled CI and maintainer review.
+
 ## 2026-09-05 — PyTorch Geometric PR #10797
 
 - **Status:** PR open; mergeable; changelog follow-up pushed; new Read the Docs and pre-commit CI pending; review pending; not merged
