@@ -46,8 +46,9 @@ Current upstream contributions:
 - [DeepSpeed PR #8411](https://github.com/deepspeedai/DeepSpeed/pull/8411) — removes an invalid ZeRO gradient-norm fallback and adds a CPU regression test.
 - [FlashAttention PR #2858](https://github.com/Dao-AILab/flash-attention/pull/2858) — slices FA4 backward-preprocess predicates per row for padded head dimensions.
 - [Triton PR #11580](https://github.com/triton-lang/triton/pull/11580) — makes autotuner arguments thread-local and adds a deterministic concurrency regression test.
+- [ONNX Runtime PR #32435](https://github.com/microsoft/onnxruntime/pull/32435) — prevents identity transposes from being folded into invalid Gemm `transB` rewrites.
 
-Eight PRs are open across model training, inference, serving, SDK, compiler/runtime, CUDA kernels, and course infrastructure. vLLM #55210 has maintainer approval and is waiting for upstream CI and merge; the other PRs are awaiting review or CI as applicable. No merge is claimed until the upstream repositories accept the changes.
+Nine PRs are open across model training, inference, serving, SDK, graph optimization, compiler/runtime, CUDA kernels, and course infrastructure. vLLM #55210 has maintainer approval and is waiting for upstream CI and merge; ONNX Runtime #32435 is waiting for CLA completion; the other PRs are awaiting review or CI as applicable. No merge is claimed until the upstream repositories accept the changes.
 
 ## How I work
 
