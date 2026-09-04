@@ -2,6 +2,16 @@
 
 This log records work that an upstream maintainer can verify. Status labels are intentionally conservative.
 
+## 2026-09-05 — LLaMA-Factory PR #10813
+
+- **Status:** PR open and mergeable; maintainer review and upstream CI pending; not merged
+- **Why this matters:** DeepSpeed ZeRO-1/2 clones tensors while gathering a full state dict, breaking the storage alias between tied input embeddings and `lm_head`; Transformers then serializes both copies even when `tie_word_embeddings=true`.
+- **Scope:** recover aliases from the model's actual shared `Parameter` objects before the SFT trainer saves an externally supplied state dict; leave genuinely untied parameters unchanged.
+- **Validation:** download-free tiny-Qwen3 regression and negative tests passed on both Transformers 4.55.0 and 5.8.0 (2 tests per version); all applicable pre-commit hooks and the repository license check passed.
+- **Upstream link:** [LLaMA-Factory PR #10813](https://github.com/hiyouga/LlamaFactory/pull/10813)
+- **Related issue:** [LLaMA-Factory issue #10560](https://github.com/hiyouga/LlamaFactory/issues/10560)
+- **Next action:** monitor upstream CI and maintainer review; revise only in response to concrete failures or feedback.
+
 ## 2026-09-05 — vLLM-Omni PR #7065
 
 - **Status:** PR open; mergeable; DCO, Python 3.11/3.12 wheel builds, pre-commit, and Read the Docs passed; maintainer review pending; not merged
