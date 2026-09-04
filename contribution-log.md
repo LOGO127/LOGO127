@@ -2,6 +2,16 @@
 
 This log records work that an upstream maintainer can verify. Status labels are intentionally conservative.
 
+## 2026-09-05 — vLLM-Omni PR #7065
+
+- **Status:** PR open; mergeable; DCO passed; build, pre-commit, documentation, and maintainer review pending; not merged
+- **Why this matters:** vLLM 0.28.0 correctly rejects negative prompt token IDs, but Higgs Audio v3 voice cloning used `-100` sentinels for reference-audio embeddings, so requests failed before reaching the model.
+- **Scope:** replace model-local sentinels with a valid tokenizer ID before engine submission, carry their absolute prompt positions as tensor metadata, map reference-code rows correctly during full or chunked prefill, retain the legacy internal fallback, and keep the existing offline example consistent.
+- **Validation:** four targeted CPU regression tests passed for vocabulary-valid prompt preparation, full prefill, chunked prefill, and the legacy fallback; an isolated online-serving prompt smoke check passed; all applicable non-mypy pre-commit hooks passed. The current upstream files contain pre-existing mypy failures, and the H100/model E2E test was not runnable locally on Windows.
+- **Upstream link:** [vLLM-Omni PR #7065](https://github.com/vllm-project/vllm-omni/pull/7065)
+- **Related issue:** [vLLM-Omni issue #6837](https://github.com/vllm-project/vllm-omni/issues/6837)
+- **Next action:** monitor CI and maintainer review; revise only in response to concrete failures or feedback.
+
 ## 2026-09-05 — Ollama PR #18234
 
 - **Status:** PR open; mergeable; maintainer review pending; not merged
