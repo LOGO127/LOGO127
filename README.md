@@ -41,7 +41,7 @@ I prefer the engineering loop:
 | Area | Evidence | Current state |
 | --- | --- | --- |
 | **LLM serving** | [vLLM #55210](https://github.com/vllm-project/vllm/pull/55210) — streaming reasoning-parser boundaries | Human-approved; waiting for upstream CI |
-| **Graph ML** | [PyG #10797](https://github.com/pyg-team/pytorch_geometric/pull/10797) — ONNX-safe scatter min/max path | Open; follow-up CI pending; review pending |
+| **Graph ML** | [PyG #10797](https://github.com/pyg-team/pytorch_geometric/pull/10797) — ONNX-safe scatter min/max path | Open; CI passed; review pending |
 | **Vector search** | [Faiss #5574](https://github.com/facebookresearch/faiss/pull/5574) — Canberra zero-denominator correctness | Open; Meta CLA action required; CI/review pending |
 | **Training systems** | [DeepSpeed #8411](https://github.com/deepspeedai/DeepSpeed/pull/8411) — ZeRO gradient-norm fallback | Open; remote CI passed; review pending |
 | **Runtime correctness** | [ONNX Runtime #32435](https://github.com/microsoft/onnxruntime/pull/32435) — identity transpose/Gemm fusion | Prior maintainer approval; CI test fix pushed; re-review pending; CLA pending |
