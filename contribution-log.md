@@ -22,6 +22,7 @@ This log records work that an upstream maintainer can verify. Status labels are 
 - **Upstream link:** [PyTorch Geometric PR #10797](https://github.com/pyg-team/pytorch_geometric/pull/10797)
 - **Related issue:** [PyTorch Geometric issue #10327](https://github.com/pyg-team/pytorch_geometric/issues/10327)
 - **CI:** [Read the Docs preview](https://pytorch-geometric--10797.org.readthedocs.build/en/10797/) and [pre-commit.ci run](https://results.pre-commit.ci/run/github/106024057/1788543530.WREly60SS52MXPwhX-0wqA) passed after commit `892a11a`
+- **Review follow-up:** [CI-green readiness note](https://github.com/pyg-team/pytorch_geometric/pull/10797#issuecomment-5544406639)
 - **Next action:** wait for CI and maintainer review; revise only if requested
 
 ## 2026-09-04 — Hugging Face TRL PR #7038
