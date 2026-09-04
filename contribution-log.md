@@ -90,12 +90,14 @@ This log records work that an upstream maintainer can verify. Status labels are 
 
 ## 2026-09-04 — ONNX Runtime PR #32435
 
-- **Status:** PR open; mergeable; CLA completion and upstream CI/review pending; not merged
+- **Status:** PR open; mergeable; maintainer approval received; full upstream CI running; CLA pending; not merged
 - **Why this matters:** `GemmTransposeFusion` treated an identity `Transpose(perm=[0, 1])` as a matrix transpose, removed it, and changed `transB`, which can produce an invalid Gemm bias shape.
 - **Scope:** require a real two-dimensional matrix transpose before folding input or output Transpose nodes into Gemm, while preserving default reverse-permutation behavior for known 2D inputs; add graph-transform regression tests for both input- and output-side identity transposes.
 - **Validation:** ORT lintrunner passed for both changed C++ files, including clang-format; `git diff --check` passed; a CPU-wheel baseline reproducer on ORT 1.22.1 showed optimization-disabled success and basic-optimization failure with `transB=1`. The source C++ gtest was not run locally because no ORT C++ build exists in this Windows checkout.
 - **Upstream link:** [ONNX Runtime PR #32435](https://github.com/microsoft/onnxruntime/pull/32435)
 - **Related issue:** [ONNX Runtime issue #32418](https://github.com/microsoft/onnxruntime/issues/32418)
+- **Maintainer review:** [approval and follow-up question](https://github.com/microsoft/onnxruntime/pull/32435#pullrequestreview-5112190255)
+- **Audit follow-up:** [review response on related transpose paths](https://github.com/microsoft/onnxruntime/pull/32435#issuecomment-5539750598)
 - **Next action:** complete the repository CLA personally if its terms accurately apply, then monitor CI and review
 
 ## Rules
