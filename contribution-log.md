@@ -4,13 +4,13 @@ This log records work that an upstream maintainer can verify. Status labels are 
 
 ## 2026-09-05 — PyTorch Geometric PR #10797
 
-- **Status:** PR open; mergeable; Read the Docs and pre-commit CI running; review pending; not merged
+- **Status:** PR open; mergeable; Read the Docs and pre-commit CI passed; review pending; not merged
 - **Why this matters:** the ONNX-specific `min`/`max` scatter path passed a zero-dimensional Tensor as `torch.full`'s `fill_value`, which older PyTorch versions reject during ONNX export.
 - **Scope:** preserve the dynamically computed fill value with `reshape(1).expand_as(src)`, keeping dtype/device behavior and avoiding conversion to a Python scalar; add regression coverage for both reductions.
 - **Validation:** targeted ONNX-path tests passed (2); the complete scatter test file passed (23 passed, 10 skipped because optional `torch-scatter` is unavailable); link-pred metric tests passed (16); Ruff lint and `git diff --check` passed. The current Ruff formatter reports pre-existing formatting differences in these files, so no broad reformat was applied.
 - **Upstream link:** [PyTorch Geometric PR #10797](https://github.com/pyg-team/pytorch_geometric/pull/10797)
 - **Related issue:** [PyTorch Geometric issue #10327](https://github.com/pyg-team/pytorch_geometric/issues/10327)
-- **CI:** [Read the Docs build](https://app.readthedocs.org/projects/pytorch-geometric/builds/34397033/) is pending; [pre-commit.ci run](https://results.pre-commit.ci/run/github/106024057/1788542792.8ICrvzybQxOkGj4l_C-5bA) is running
+- **CI:** [Read the Docs preview](https://pytorch-geometric--10797.org.readthedocs.build/en/10797/) and [pre-commit.ci run](https://results.pre-commit.ci/run/github/106024057/1788542880.TbcdpeBmRECWucqbyfHa8A) passed
 - **Next action:** wait for CI and maintainer review; revise only if requested
 
 ## 2026-09-04 — Hugging Face TRL PR #7038
