@@ -2,6 +2,17 @@
 
 This log records work that an upstream maintainer can verify. Status labels are intentionally conservative.
 
+## 2026-09-05 — OLMo-core PR #858
+
+- **Status:** PR open; maintainer review and upstream CI pending; not merged
+- **Why this matters:** `BeakerCallback.post_attach()` only needs to inspect the runtime environment, but it imported the full Beaker launch module and therefore failed when the optional `beaker` or `gantry` packages were absent.
+- **Scope:** move Beaker environment detection to the dependency-light launch utilities, re-export the helpers from their existing module for compatibility, and keep explicit Beaker operations unchanged.
+- **Validation:** environment-matrix and callback regression tests passed (7 tests total); the callback test explicitly blocked the optional launch module; Ruff, Black, isort, focused mypy, compileall, and `git diff --check` passed.
+- **Environment limitation:** the callback test used a local-only spawn compatibility shim because the repository's `bettermap` dependency requires a Unix `fork` context; no shim is part of the submitted change.
+- **Upstream link:** [OLMo-core PR #858](https://github.com/allenai/OLMo-core/pull/858)
+- **Related issue:** [OLMo-core issue #850](https://github.com/allenai/OLMo-core/issues/850)
+- **Next action:** monitor upstream CI and maintainer review; revise only in response to concrete failures or feedback.
+
 ## 2026-09-05 — bitsandbytes PR #2073
 
 - **Status:** PR open and mergeable; upstream CI and maintainer review pending; not merged
