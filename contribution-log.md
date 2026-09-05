@@ -88,14 +88,14 @@ This log records work that an upstream maintainer can verify. Status labels are 
 
 ## 2026-09-05 — Faiss PR #5574
 
-- **Status:** PR open; mergeable; Meta CLA signed and check passed; compiled CI queued; review pending; not merged
+- **Status:** PR open; Meta CLA passed; local native generic/AVX2 tests passed; Meta import queued; review pending; not merged
 - **Why this matters:** `METRIC_Canberra` evaluated `0 / 0` when both vectors were zero in a dimension, producing `NaN` and causing `IndexFlat.search` to retain `FLT_MAX/-1` empty-result sentinels.
 - **Scope:** skip the zero-denominator term so it contributes `0`, and add regression coverage for both `pairwise_distances` and `IndexFlat.search`.
-- **Validation:** reproduced the reported behavior with the installed Faiss 1.12.0 package; Python test syntax, targeted Ruff checks, and `git diff --check` passed. A full C++ build was not available locally because the Windows environment lacks CMake/C++ tooling.
+- **Validation:** built the actual C++ library and SWIG bindings in WSL Ubuntu (GCC 13.3, C++20, Release, CPU-only), verifying the loaded generic and AVX2 modules separately. Before the fix, the new regression failed in both native builds with `NaN` distances and `FLT_MAX/-1` search results. After the fix, `tests/test_extra_distances.py` passed all **14 tests in each build**. Additional SciPy comparisons passed for eight dimensions with sparse signed vectors, shared zeros, and partial/full-k searches. Both changed source files matched the submitted files by SHA-256; Python syntax, focused Ruff lint, and `git diff --check` passed. GPU and Meta's internal suite were not run locally.
 - **Upstream link:** [Faiss PR #5574](https://github.com/facebookresearch/faiss/pull/5574)
 - **Related issue:** [Faiss issue #5557](https://github.com/facebookresearch/faiss/issues/5557)
-- **CI:** [Meta CLA check](https://github.com/facebookresearch/faiss/pull/5574) passed; Meta import checks passed and the compiled import status remains queued.
-- **Next action:** wait for compiled CI and maintainer review.
+- **CI:** [Meta CLA check](https://github.com/facebookresearch/faiss/pull/5574) and Meta import checks passed; Import Status remains queued. Local native test results are not a claim of internal CI success.
+- **Next action:** native validation evidence added to the PR description; wait for Meta's import/internal validation and maintainer review.
 
 ## 2026-09-05 — PyTorch Geometric PR #10797
 
