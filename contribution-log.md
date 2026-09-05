@@ -2,6 +2,19 @@
 
 This log records work that an upstream maintainer can verify. Status labels are intentionally conservative.
 
+## 2026-09-05 — DeePMD-kit PR #6008
+
+- **Status:** PR open and mergeable; seven Actions workflows await maintainer approval for this external contribution; maintainer review pending; not merged.
+- **Why this matters:** charge/spin-conditioned DPA4 inferred a uniform number of nodes per frame, causing shape errors for some ragged batches and silent cross-frame condition assignment for others.
+- **Scope:** use the existing node-to-frame map with actual per-frame counts; preserve public arguments, defaults, and serialization; add NumPy/PyTorch fp32/fp64 descriptor tests and message-sensitive public model regressions.
+- **Validation:** independent WSL Ubuntu source build at upstream `58a12b1`, Python 3.12.3, PyTorch 2.11.0+cpu, TensorFlow CPU 2.21.0, and real native operators. Before the fix, the 30 new regressions produced **15 failed / 15 passed**; after it, **30 passed**. The final related suite produced **130 passed**, covering energies, nonzero forces, virials, embedding parameter gradients, serialization, dense/graph goldens, dynamic graph export with and without conditioning, 31 native CPU-operator tests, and a TensorFlow inference smoke test.
+- **Submission checks:** full-repository Ruff 0.16.0 lint/format, changed-file isort 9.0.0b1, and `git diff --check` passed. All four tested source blobs matched the submitted files. Commit: `756f37e01869e1ea75167da01b271447e319db99`.
+- **Limits:** CPU only; GPU, JAX, multi-rank, and full-project tests were not run. Optional legacy-pt/cross-backend parity suites could not be collected without e3nn and are not included in the 130. One operator-registration warning was emitted; a complete pre-commit-hook run is not claimed.
+- **Upstream link:** [DeePMD-kit PR #6008](https://github.com/deepmodeling/deepmd-kit/pull/6008)
+- **Related issue:** [DeePMD-kit issue #5992](https://github.com/deepmodeling/deepmd-kit/issues/5992)
+- **AI assistance:** implementation and local verification prepared with OpenAI Codex, disclosed in the PR.
+- **Next action:** follow maintainer review and CI; continue building expertise in graph batching and scientific numerical correctness. This is a submitted contribution, not a merged change or a core-contributor designation.
+
 ## 2026-09-05 — DeePMD-kit PR #6007
 
 - **Status:** PR open and mergeable; seven GitHub Actions workflows await maintainer approval for this external contribution; maintainer review pending; not merged
