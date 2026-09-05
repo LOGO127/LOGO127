@@ -42,6 +42,7 @@ I prefer the engineering loop:
 | --- | --- | --- |
 | **LLM serving** | [vLLM #55210](https://github.com/vllm-project/vllm/pull/55210) — streaming reasoning-parser boundaries | Community approval; maintainer review/CI pending |
 | **Multimodal serving** | [vLLM-Omni #7065](https://github.com/vllm-project/vllm-omni/pull/7065) — Higgs Audio v3 voice-clone token validation | **Merged** after collaborator review; core CI passed |
+| **Benchmark reliability** | [vLLM-Omni #7089](https://github.com/vllm-project/vllm-omni/pull/7089) — request metadata and metric type contracts | Open; 47 local tests passed; DCO/pre-commit CI passed; review pending |
 | **Local AI runtime** | [Ollama #18234](https://github.com/ollama/ollama/pull/18234) — rootless Linux installation | Open; mergeable; review pending |
 | **Graph ML** | [PyG #10797](https://github.com/pyg-team/pytorch_geometric/pull/10797) — ONNX-safe scatter min/max path | Open; lint/docs checks passed; review pending |
 | **Atomistic ML** | [DeePMD-kit #6007](https://github.com/deepmodeling/deepmd-kit/pull/6007) — zero-node native-spin descriptor graphs | Open; 173 local tests passed, 17 skipped; maintainer CI approval/review pending |
@@ -54,8 +55,9 @@ I prefer the engineering loop:
 | **Kernel/compiler work** | [FlashAttention #2858](https://github.com/Dao-AILab/flash-attention/pull/2858) · [Triton #11580](https://github.com/triton-lang/triton/pull/11580) | Open; hardware CI/review pending |
 
 <details>
-<summary>Full upstream contribution log · 1 merged + 21 open PRs</summary>
+<summary>Full upstream contribution log · 1 merged + 22 open PRs</summary>
 
+- [vLLM-Omni #7089](https://github.com/vllm-project/vllm-omni/pull/7089) — clarifies benchmark request/metric types and validates missing OmniInteract metadata, with regression coverage and unchanged metric defaults.
 - [DeePMD-kit #6010](https://github.com/deepmodeling/deepmd-kit/pull/6010) — excludes virtual atoms from force/Hessian metrics and their aggregation weights, with real-checkpoint and CLI regression coverage.
 - [DeePMD-kit #6008](https://github.com/deepmodeling/deepmd-kit/pull/6008) — maps charge/spin conditions to their actual frames in ragged DPA4 graph batches, with numerical, gradient, and dynamic-export regressions.
 - [DeePMD-kit #6007](https://github.com/deepmodeling/deepmd-kit/pull/6007) — preserves the native-spin DPA4C feature width for zero-node graphs, with NumPy/PyTorch forward and spin-gradient regression coverage.

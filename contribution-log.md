@@ -2,9 +2,20 @@
 
 This log records work that an upstream maintainer can verify. Status labels are intentionally conservative.
 
+## 2026-09-05 — vLLM-Omni PR #7089
+
+- **Status:** open and mergeable; DCO and upstream pre-commit passed; wheel/docs builds and maintainer review pending; not merged.
+- **Why this matters:** the changed-file mypy hook reports 35 diagnostics across the existing benchmark patch module and its tests, blocking otherwise small local benchmark fixes.
+- **Scope:** validate missing OmniInteract metadata before that sample's cleanup; clarify dynamic module/metric types, numeric metric values, async context alternatives, LoRA assignment iterators, and generation/embedding length shapes. Numeric conversions and defaults are preserved; no lint policy bypass, new dependency, or performance claim.
+- **Validation:** Python 3.12.3, vLLM 0.28.0, torch 2.11.0+cpu, transformers 5.14.1; base `5d7fdf935`, signed head `f4783af77`. New metadata tests: **2 failed / 1 passed on base**; patched patch/metrics suite: **47 passed**, rerun before publication. All applicable changed-file pre-commit hooks, including mypy 3.10, passed; manual mypy 3.12 passed. Tested and submitted file blobs match.
+- **Limits:** expanded benchmarks give **198 passed / 1 failed on base**, **201 passed / the same 1 failed on head**. A local launcher disables NVML discovery for CPU tests on a GPU-visible host; the CLI child process does not inherit it and cannot load `libtorch_cuda.so` with CPU PyTorch. No test skips hide this failure; no GPU, model-inference, performance or full-CI validation is claimed.
+- **Upstream link:** [vLLM-Omni PR #7089](https://github.com/vllm-project/vllm-omni/pull/7089)
+- **AI assistance and signing:** Codex assisted implementation, full-mode precheck and local validation; the contributor personally executed the DCO-signed commit. Publication preserved that commit unchanged.
+- **Next action:** respond to substantive review and CI findings. Keep the separate SSE-error correction's dependency and validation evidence explicit; do not count an open PR as an accepted contribution.
+
 ## 2026-09-05 — DeePMD-kit PR #6010
 
-- **Status:** PR open and mergeable; seven Actions workflows await maintainer approval for this external contribution; maintainer review and other checks pending; not merged.
+- **Status:** PR open and mergeable; triage, pre-commit, CodeRabbit and docs checks passed; seven Actions workflows await maintainer approval; no maintainer review yet; not merged. CodeRabbit completion is not review approval: one actionable spin-padding finding remains.
 - **Why this matters:** virtual atoms were included in force and Hessian error numerators, denominators and aggregation weights. Zero padding artificially lowers errors; NaN padding contaminates them.
 - **Scope:** select real force components and real-real Hessian entries before error computation, including optional force preferences; omit empty atom metrics and zero-weight force metrics; preserve padded detail-file layouts. Spin force splitting, atomic-energy errors and energy/virial per-atom normalization are unchanged.
 - **Validation:** independent source build at upstream `58a12b1`, WSL Ubuntu, Python 3.12.3, PyTorch 2.11.0+cpu, TensorFlow CPU 2.21.0, e3nn 0.6.0 and native compiled operators. Final new tests against unmodified production code: **14 failed / 5 passed**; with the fix all **19 new tests passed**. Final focused/related run: **56 passed**, including existing TensorFlow/PyTorch inference/testing, spin, weighted aggregation and Hessian loading.
@@ -14,7 +25,8 @@ This log records work that an upstream maintainer can verify. Status labels are 
 - **Upstream link:** [DeePMD-kit PR #6010](https://github.com/deepmodeling/deepmd-kit/pull/6010)
 - **Related issue:** [DeePMD-kit issue #5928](https://github.com/deepmodeling/deepmd-kit/issues/5928)
 - **AI assistance:** implementation and local verification prepared with OpenAI Codex, disclosed in the PR.
-- **Next action:** respond to concrete review and CI feedback; continue learning the scientific invariants of graph batching and evaluation. Local validation is not upstream approval or a core-contributor designation.
+- **Review follow-up:** [CodeRabbit's spin-padding finding](https://github.com/deepmodeling/deepmd-kit/pull/6010#discussion_r3939939259) was reproduced against the real metric implementation in both spin-force layouts: zero padding changes a real-atom MAE from 2 to 1, and NaN padding contaminates the statistic. This is an existing spin path outside the original fix, not a demonstrated newly introduced regression. A correction and broader spin regressions are still pending.
+- **Next action:** address the verified spin-padding finding while preserving detail-file alignment; continue learning the scientific invariants of graph batching and evaluation. Local validation is not upstream approval or a core-contributor designation.
 
 ## 2026-09-05 — DeePMD-kit PR #6008
 
@@ -162,24 +174,24 @@ This log records work that an upstream maintainer can verify. Status labels are 
 
 ## 2026-09-04 — OpenAI Python PR #3790
 
-- **Status:** PR open; mergeable; DCO passed; maintainer confirmed the cleanup is correct; formal code-owner approval pending; not merged
+- **Status:** PR open and mergeable; positive community review received; SDK team approval and upstream CI pending; not merged
 - **Why this matters:** the streaming implementation contained an `sse.event == "error"` check inside a branch that only accepts events beginning with `thread.`, making that check unreachable.
 - **Scope:** remove the duplicated unreachable branch from both `Stream` and `AsyncStream`; the existing reachable SSE error handling is unchanged.
 - **Validation:** `tests/test_streaming.py` passed (20 tests); Ruff check, Ruff format, and `git diff --check` passed.
 - **Upstream link:** [OpenAI Python PR #3790](https://github.com/openai/openai-python/pull/3790)
 - **Related issue:** [openai-python issue #2796](https://github.com/openai/openai-python/issues/2796)
-- **Maintainer review:** [positive semantic review](https://github.com/openai/openai-python/pull/3790#pullrequestreview-5115251602)
+- **Community review:** [positive semantic review](https://github.com/openai/openai-python/pull/3790#pullrequestreview-5115251602) by `sylvesterkaczmarek` (GitHub association `NONE`); this is not SDK team approval.
 - **Review follow-up:** [formal code-owner approval request](https://github.com/openai/openai-python/pull/3790#issuecomment-5543582043)
 - **Next action:** wait for `openai/sdks-team` approval; revise only if maintainers request changes
 
 ## 2026-09-04 — vLLM PR #55210
 
-- **Status:** PR open; DCO passed; maintainer approval received; upstream CI/merge pending; not merged
+- **Status:** PR open; DCO passed; community approval received; maintainer review and upstream CI pending; not merged
 - **Why this matters:** grouped streaming deltas could leak a reasoning start marker or drop content emitted after `</think>`.
 - **Scope:** two reasoning-parser paths and focused regression coverage; no model-serving or GPU behavior changed.
 - **Validation:** 41 reasoning tests passed; Ruff check, Ruff format, typos, and `git diff --check` passed.
 - **Upstream link:** [vLLM PR #55210](https://github.com/vllm-project/vllm/pull/55210)
-- **Review:** [maintainer approval and regression verification](https://github.com/vllm-project/vllm/pull/55210#pullrequestreview-5106377985)
+- **Community review:** [approval and reported regression verification](https://github.com/vllm-project/vllm/pull/55210#pullrequestreview-5106377985) by `Manny7717` (GitHub association `NONE`); this is not maintainer approval.
 - **CI follow-up:** [request for a write-access reviewer to trigger upstream CI](https://github.com/vllm-project/vllm/pull/55210#issuecomment-5535327497)
 - **Next action:** respond to maintainer feedback and revise only if requested
 
