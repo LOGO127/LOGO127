@@ -47,15 +47,16 @@ I prefer the engineering loop:
 | **Vector search** | [Faiss #5574](https://github.com/facebookresearch/faiss/pull/5574) — Canberra zero-denominator correctness | Open; Meta CLA passed; import CI/review pending |
 | **Training systems** | [LLaMA-Factory #10813](https://github.com/hiyouga/LlamaFactory/pull/10813) — tied-weight serialization · [GPT-NeoX #1419](https://github.com/EleutherAI/gpt-neox/pull/1419) — clean-runner CI setup · [DeepSpeed #8411](https://github.com/deepspeedai/DeepSpeed/pull/8411) — ZeRO gradient-norm fallback | Open; targeted checks passed; review pending |
 | **RL training** | [PrimeRL #3489](https://github.com/PrimeIntellect-ai/prime-rl/pull/3489) — W&B GraphQL transport compatibility | Ready for review; old/new W&B checks passed; maintainer CI approval pending |
-| **Training infrastructure** | [OLMo-core #858](https://github.com/allenai/OLMo-core/pull/858) — optional Beaker dependency isolation | Open; 7 focused tests and static checks passed; upstream CI/review pending |
+| **Training infrastructure** | [OLMo-core #858](https://github.com/allenai/OLMo-core/pull/858) — optional Beaker dependency isolation · [OLMo-core #860](https://github.com/allenai/OLMo-core/pull/860) — async-checkpoint host-memory release | Both open; focused regressions and static checks passed; review pending |
 | **Model optimization** | [bitsandbytes #2073](https://github.com/bitsandbytes-foundation/bitsandbytes/pull/2073) — explicit ROCm architecture override for restricted containers | Open; 13 tests and pre-commit passed; upstream CI/review pending |
 | **Runtime correctness** | [ONNX Runtime #32435](https://github.com/microsoft/onnxruntime/pull/32435) — identity transpose/Gemm fusion | Prior maintainer approval; CI test fix pushed; re-review pending; CLA pending |
 | **Kernel/compiler work** | [FlashAttention #2858](https://github.com/Dao-AILab/flash-attention/pull/2858) · [Triton #11580](https://github.com/triton-lang/triton/pull/11580) | Open; hardware CI/review pending |
 
 <details>
-<summary>Full upstream contribution log · 1 merged + 17 open PRs</summary>
+<summary>Full upstream contribution log · 1 merged + 18 open PRs</summary>
 
 - [PrimeRL #3489](https://github.com/PrimeIntellect-ai/prime-rl/pull/3489) — restores W&B dashboard startup across legacy and current SDKs by reusing the project's existing compatible GraphQL transport.
+- [OLMo-core #860](https://github.com/allenai/OLMo-core/pull/860) — releases staged model and optimizer tensors before later async-checkpoint callbacks retain substantial host memory.
 - [OLMo-core #858](https://github.com/allenai/OLMo-core/pull/858) — lets the default Beaker callback detect its runtime environment without importing optional Beaker/Gantry dependencies during attachment.
 - [bitsandbytes #2073](https://github.com/bitsandbytes-foundation/bitsandbytes/pull/2073) — lets restricted ROCm containers provide a validated GPU architecture without invoking an unavailable `rocminfo` binary.
 - [GPT-NeoX #1419](https://github.com/EleutherAI/gpt-neox/pull/1419) — installs the test job's dependencies before its dataset-preparation import path runs on a clean CI worker.

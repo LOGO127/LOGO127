@@ -2,6 +2,17 @@
 
 This log records work that an upstream maintainer can verify. Status labels are intentionally conservative.
 
+## 2026-09-05 — OLMo-core PR #860
+
+- **Status:** PR open; GitGuardian security check passed; maintainer review and any further upstream CI pending; not merged
+- **Why this matters:** PyTorch's async checkpoint executor retains the submitted call arguments while future callbacks run, so a staged model and optimizer state can occupy substantial host memory even though later callbacks cannot use it.
+- **Scope:** keep the staged top-level mapping available throughout the write, then clear it in the checkpointer's first completion callback before metadata writing and callbacks registered later by the trainer or caller; add a deterministic CPU regression and changelog entry.
+- **Validation:** the regression failed against `origin/main` and passed with the patch (`1 passed`); an actual PyTorch async-checkpoint harness completed the save and observed the staged tensor collected before a later callback; isort, Black (`398 files would be left unchanged`), Ruff, full `mypy src/` (`397 source files`), and `git diff --check` passed.
+- **Environment limitation:** the focused pytest invocation used a local Windows-only import shim for `bettermap`'s POSIX `fork` assumption; the shim is not part of the submitted change, and upstream Linux CI remains authoritative.
+- **Upstream link:** [OLMo-core PR #860](https://github.com/allenai/OLMo-core/pull/860)
+- **Related issue:** [OLMo-core issue #856](https://github.com/allenai/OLMo-core/issues/856)
+- **Next action:** monitor maintainer review and upstream CI; revise only in response to concrete failures or feedback.
+
 ## 2026-09-05 — PrimeRL PR #3489
 
 - **Status:** PR open, mergeable, and ready for review; Style, CPU, and GPU workflows await the repository's external-contributor approval; maintainer review pending; not merged
