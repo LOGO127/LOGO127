@@ -54,8 +54,9 @@ I prefer the engineering loop:
 | **Kernel/compiler work** | [FlashAttention #2858](https://github.com/Dao-AILab/flash-attention/pull/2858) · [Triton #11580](https://github.com/triton-lang/triton/pull/11580) | Open; hardware CI/review pending |
 
 <details>
-<summary>Full upstream contribution log · 1 merged + 20 open PRs</summary>
+<summary>Full upstream contribution log · 1 merged + 21 open PRs</summary>
 
+- [DeePMD-kit #6010](https://github.com/deepmodeling/deepmd-kit/pull/6010) — excludes virtual atoms from force/Hessian metrics and their aggregation weights, with real-checkpoint and CLI regression coverage.
 - [DeePMD-kit #6008](https://github.com/deepmodeling/deepmd-kit/pull/6008) — maps charge/spin conditions to their actual frames in ragged DPA4 graph batches, with numerical, gradient, and dynamic-export regressions.
 - [DeePMD-kit #6007](https://github.com/deepmodeling/deepmd-kit/pull/6007) — preserves the native-spin DPA4C feature width for zero-node graphs, with NumPy/PyTorch forward and spin-gradient regression coverage.
 - [PrimeRL #3489](https://github.com/PrimeIntellect-ai/prime-rl/pull/3489) — restores W&B dashboard startup across legacy and current SDKs by reusing the project's existing compatible GraphQL transport.

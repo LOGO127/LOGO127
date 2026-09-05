@@ -2,6 +2,20 @@
 
 This log records work that an upstream maintainer can verify. Status labels are intentionally conservative.
 
+## 2026-09-05 — DeePMD-kit PR #6010
+
+- **Status:** PR open and mergeable; seven Actions workflows await maintainer approval for this external contribution; maintainer review and other checks pending; not merged.
+- **Why this matters:** virtual atoms were included in force and Hessian error numerators, denominators and aggregation weights. Zero padding artificially lowers errors; NaN padding contaminates them.
+- **Scope:** select real force components and real-real Hessian entries before error computation, including optional force preferences; omit empty atom metrics and zero-weight force metrics; preserve padded detail-file layouts. Spin force splitting, atomic-energy errors and energy/virial per-atom normalization are unchanged.
+- **Validation:** independent source build at upstream `58a12b1`, WSL Ubuntu, Python 3.12.3, PyTorch 2.11.0+cpu, TensorFlow CPU 2.21.0, e3nn 0.6.0 and native compiled operators. Final new tests against unmodified production code: **14 failed / 5 passed**; with the fix all **19 new tests passed**. Final focused/related run: **56 passed**, including existing TensorFlow/PyTorch inference/testing, spin, weighted aggregation and Hessian loading.
+- **Integration evidence:** a real initialized Hessian-enabled PyTorch checkpoint, on-disk mixed-type data and separate-process `dp test`; no mocked inference in the integration test. Checks cover zero/NaN labels, one-frame vs multi-frame chunks, exact valid-element weights, and detail-file layout. This is not a trained-potential accuracy benchmark.
+- **Submission checks:** full-repository Ruff 0.16.0 lint/format, changed-file isort 9.0.0b1 and `git diff --check` passed; all three tested source blobs match commit `3c055cc430637b3741fcdc3b6201a407f3144300`.
+- **Limits:** CPU only; no GPU, JAX, full-project suite or complete pre-commit-hook run claimed. Existing TorchScript, CPU pin-memory and multiprocessing-fork warnings were emitted.
+- **Upstream link:** [DeePMD-kit PR #6010](https://github.com/deepmodeling/deepmd-kit/pull/6010)
+- **Related issue:** [DeePMD-kit issue #5928](https://github.com/deepmodeling/deepmd-kit/issues/5928)
+- **AI assistance:** implementation and local verification prepared with OpenAI Codex, disclosed in the PR.
+- **Next action:** respond to concrete review and CI feedback; continue learning the scientific invariants of graph batching and evaluation. Local validation is not upstream approval or a core-contributor designation.
+
 ## 2026-09-05 — DeePMD-kit PR #6008
 
 - **Status:** PR open and mergeable; seven Actions workflows await maintainer approval for this external contribution; maintainer review pending; not merged.
