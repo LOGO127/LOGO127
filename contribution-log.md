@@ -7,8 +7,8 @@ This log records work that an upstream maintainer can verify. Status labels are 
 - **Status:** PR open, mergeable, and ready for review; Style, CPU, and GPU workflows await the repository's external-contributor approval; maintainer review pending; not merged
 - **Why this matters:** W&B 0.27.1 removed the `wandb_gql` package, so importing PrimeRL's W&B overview monitor could fail before training started on current W&B releases.
 - **Scope:** replace the direct `wandb_gql` dependency with the GraphQL compatibility transport already provided by the project's required `wandb-workspaces>=0.4.3`, keep the query as a raw string, and add a focused unit regression test.
-- **Validation:** isolated transport smoke checks passed with both W&B 0.27.0 (legacy client) and W&B 0.28.2 (service API); Ruff lint, Ruff formatting, and `git diff --check` passed.
-- **Environment limitation:** the repository's full dependency resolution targets Linux/macOS and did not complete on Windows, so full project pytest was not run locally; the exact legacy and current transport paths were exercised without network access, and upstream Ubuntu CI remains pending.
+- **Validation:** the focused regression test passed under both W&B 0.27.0 and 0.28.2 (`1 passed` per environment); separate no-network smokes exercised the real legacy-client and service-API transports; Ruff lint, Ruff formatting, and `git diff --check` passed.
+- **Environment limitation:** the repository's full dependency resolution targets Linux/macOS and did not complete on Windows, so the full project suite was not run locally; the focused pytest runs isolated unrelated package initializers, and upstream Ubuntu CI remains pending.
 - **Upstream link:** [PrimeRL PR #3489](https://github.com/PrimeIntellect-ai/prime-rl/pull/3489)
 - **Related issue:** [PrimeRL issue #3087](https://github.com/PrimeIntellect-ai/prime-rl/issues/3087)
 - **Next action:** wait for a maintainer to approve the external-contributor workflows, then fix any concrete CI failures and respond to review.
