@@ -49,7 +49,7 @@ I prefer the engineering loop:
 | **RL training** | [PrimeRL #3489](https://github.com/PrimeIntellect-ai/prime-rl/pull/3489) — W&B GraphQL transport compatibility | Ready for review; old/new W&B checks passed; maintainer CI approval pending |
 | **Training infrastructure** | [OLMo-core #858](https://github.com/allenai/OLMo-core/pull/858) — optional Beaker dependency isolation · [OLMo-core #860](https://github.com/allenai/OLMo-core/pull/860) — async-checkpoint host-memory release | Both open; focused regressions and static checks passed; review pending |
 | **Model optimization** | [bitsandbytes #2073](https://github.com/bitsandbytes-foundation/bitsandbytes/pull/2073) — explicit ROCm architecture override for restricted containers | Open; 13 tests and pre-commit passed; upstream CI/review pending |
-| **Runtime correctness** | [ONNX Runtime #32435](https://github.com/microsoft/onnxruntime/pull/32435) — identity transpose/Gemm fusion | Prior maintainer approval; CI test fix pushed; re-review pending; CLA pending |
+| **Runtime correctness** | [ONNX Runtime #32435](https://github.com/microsoft/onnxruntime/pull/32435) — identity transpose/Gemm fusion | CLA passed; CI test fix pushed; maintainer re-review pending |
 | **Kernel/compiler work** | [FlashAttention #2858](https://github.com/Dao-AILab/flash-attention/pull/2858) · [Triton #11580](https://github.com/triton-lang/triton/pull/11580) | Open; hardware CI/review pending |
 
 <details>

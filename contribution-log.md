@@ -198,7 +198,7 @@ This log records work that an upstream maintainer can verify. Status labels are 
 
 ## 2026-09-04 — ONNX Runtime PR #32435
 
-- **Status:** PR open; mergeable; maintainer approval was received on the prior commit; CI exposed a test compile error and the fix was pushed in `031cc67`; GitHub dismissed the prior approval after the new commit, so re-review is pending; CLA pending; not merged
+- **Status:** PR open; maintainer approval was received on the prior commit; CI exposed a test compile error and the fix was pushed in `031cc67`; GitHub dismissed the prior approval after the new commit, so re-review is pending; Microsoft CLA passed on 2026-09-05 after the author signed personally; not merged
 - **Why this matters:** `GemmTransposeFusion` treated an identity `Transpose(perm=[0, 1])` as a matrix transpose, removed it, and changed `transB`, which can produce an invalid Gemm bias shape.
 - **Scope:** require a real two-dimensional matrix transpose before folding input or output Transpose nodes into Gemm, while preserving default reverse-permutation behavior for known 2D inputs; add graph-transform regression tests for both input- and output-side identity transposes.
 - **Validation:** ORT lintrunner passed for both changed C++ files, including clang-format; `git diff --check` passed; the first upstream full-build batch consistently failed at the four new shape-only `MakeInput` calls, which was corrected in `031cc67` using the repository's existing double-brace shape form; a CPU-wheel baseline reproducer on ORT 1.22.1 showed optimization-disabled success and basic-optimization failure with `transB=1`. The source C++ gtest was not run locally because no ORT C++ build exists in this Windows checkout.
@@ -207,7 +207,8 @@ This log records work that an upstream maintainer can verify. Status labels are 
 - **Related issue:** [ONNX Runtime issue #32418](https://github.com/microsoft/onnxruntime/issues/32418)
 - **Maintainer review:** [approval and follow-up question](https://github.com/microsoft/onnxruntime/pull/32435#pullrequestreview-5112190255)
 - **Audit follow-up:** [review response on related transpose paths](https://github.com/microsoft/onnxruntime/pull/32435#issuecomment-5539750598)
-- **Next action:** complete the repository CLA personally if its terms accurately apply, then monitor the rerun CI and request/await fresh maintainer review
+- **CLA confirmation:** [author's agreement comment](https://github.com/microsoft/onnxruntime/pull/32435#issuecomment-5548587260); `license/cla` completed successfully at 2026-09-05 01:59:27 UTC.
+- **Next action:** finish local follow-up regression validation, then monitor upstream CI and maintainer re-review
 
 ## Rules
 
