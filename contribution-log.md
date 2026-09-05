@@ -2,6 +2,18 @@
 
 This log records work that an upstream maintainer can verify. Status labels are intentionally conservative.
 
+## 2026-09-05 — DeePMD-kit PR #6007
+
+- **Status:** PR open and mergeable; seven GitHub Actions workflows await maintainer approval for this external contribution; maintainer review pending; not merged
+- **Why this matters:** the DPA4C native-spin graph path tries to infer the cross-Gram feature width with `reshape(0, -1)` for zero-node inputs, which fails in both NumPy and PyTorch.
+- **Scope:** use the existing quadrupole and degree-two channel widths explicitly; add full `call_graph()` regressions for float32/float64, channels 8/32, zero-node graphs and two isolated nodes. The spin gate is open, and the PyTorch tests also verify spin gradients.
+- **Validation:** built upstream `58a12b1e0a72cfcc322c64d70c21469220bef74f` in isolated WSL Ubuntu with Python 3.12.3, PyTorch 2.11.0+cpu, TensorFlow CPU 2.21.0, and real native C++/TensorFlow/PyTorch operators. Before the fix, the new tests produced `8 failed, 8 passed`, with every zero-node case failing at the reported reshape. After the fix, all 16 passed. Broader descriptor, graph-lowering, CPU-operator, and TensorFlow inference tests produced **173 passed, 17 skipped**, including all 31 CPU-operator tests. Full-repository Ruff lint/format checks and `git diff --check` passed; all three tested source blobs matched the submitted files.
+- **Environment limitation:** one JAX test was skipped because JAX is not installed; 16 tests require CUDA. GPU validation and a full project test-suite run are not claimed. The targeted run emitted operator-registration and TorchScript deprecation warnings.
+- **Upstream link:** [DeePMD-kit PR #6007](https://github.com/deepmodeling/deepmd-kit/pull/6007)
+- **Related issue:** [DeePMD-kit issue #5991](https://github.com/deepmodeling/deepmd-kit/issues/5991)
+- **AI assistance:** disclosed in the PR; implementation and local verification were prepared with OpenAI Codex.
+- **Next action:** follow upstream CI and maintainer feedback; revise in response to concrete findings and build sustained familiarity with graph/descriptor boundary conditions.
+
 ## 2026-09-05 — OLMo-core PR #860
 
 - **Status:** PR open; GitGuardian security check passed; maintainer review and any further upstream CI pending; not merged
