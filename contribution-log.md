@@ -4,14 +4,14 @@ This log records work that an upstream maintainer can verify. Status labels are 
 
 ## 2026-09-05 — PrimeRL PR #3489
 
-- **Status:** draft PR open and mergeable; upstream CI and maintainer review pending; not merged
+- **Status:** PR open, mergeable, and ready for review; Style, CPU, and GPU workflows await the repository's external-contributor approval; maintainer review pending; not merged
 - **Why this matters:** W&B 0.27.1 removed the `wandb_gql` package, so importing PrimeRL's W&B overview monitor could fail before training started on current W&B releases.
 - **Scope:** replace the direct `wandb_gql` dependency with the GraphQL compatibility transport already provided by the project's required `wandb-workspaces>=0.4.3`, keep the query as a raw string, and add a focused unit regression test.
 - **Validation:** isolated transport smoke checks passed with both W&B 0.27.0 (legacy client) and W&B 0.28.2 (service API); Ruff lint, Ruff formatting, and `git diff --check` passed.
 - **Environment limitation:** the repository's full dependency resolution targets Linux/macOS and did not complete on Windows, so full project pytest was not run locally; the exact legacy and current transport paths were exercised without network access, and upstream Ubuntu CI remains pending.
 - **Upstream link:** [PrimeRL PR #3489](https://github.com/PrimeIntellect-ai/prime-rl/pull/3489)
 - **Related issue:** [PrimeRL issue #3087](https://github.com/PrimeIntellect-ai/prime-rl/issues/3087)
-- **Next action:** monitor upstream CI, fix concrete failures if any, and move the draft to ready for review once its checks are satisfactory.
+- **Next action:** wait for a maintainer to approve the external-contributor workflows, then fix any concrete CI failures and respond to review.
 
 ## 2026-09-05 — OLMo-core PR #858
 
