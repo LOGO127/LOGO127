@@ -198,17 +198,18 @@ This log records work that an upstream maintainer can verify. Status labels are 
 
 ## 2026-09-04 — ONNX Runtime PR #32435
 
-- **Status:** PR open; maintainer approval was received on the prior commit; CI exposed a test compile error and the fix was pushed in `031cc67`; GitHub dismissed the prior approval after the new commit, so re-review is pending; Microsoft CLA passed on 2026-09-05 after the author signed personally; not merged
+- **Status:** PR open; follow-up fix and stronger regression coverage pushed in `ffa9975` on 2026-09-05; prior maintainer approval was dismissed after earlier updates, so upstream CI and re-review remain pending; Microsoft CLA passed after the author signed personally; not merged
 - **Why this matters:** `GemmTransposeFusion` treated an identity `Transpose(perm=[0, 1])` as a matrix transpose, removed it, and changed `transB`, which can produce an invalid Gemm bias shape.
-- **Scope:** require a real two-dimensional matrix transpose before folding input or output Transpose nodes into Gemm, while preserving default reverse-permutation behavior for known 2D inputs; add graph-transform regression tests for both input- and output-side identity transposes.
-- **Validation:** ORT lintrunner passed for both changed C++ files, including clang-format; `git diff --check` passed; the first upstream full-build batch consistently failed at the four new shape-only `MakeInput` calls, which was corrected in `031cc67` using the repository's existing double-brace shape form; a CPU-wheel baseline reproducer on ORT 1.22.1 showed optimization-disabled success and basic-optimization failure with `transB=1`. The source C++ gtest was not run locally because no ORT C++ build exists in this Windows checkout.
+- **Scope:** require a real two-dimensional matrix transpose before folding input or output Transpose nodes into Gemm, including the `Apply` output branch when a real input transpose triggers fusion; preserve default reverse-permutation behavior for known 2D inputs; check non-default Gemm attributes and A/B input order, and cover mixed real-input/identity-output transposes on either input.
+- **Validation:** built the real `onnxruntime_test_all` executable in WSL Ubuntu with GCC 13.3, CMake 3.28.3, CPU-only Release. The new mixed-path regression failed on the previous PR head `031cc67` (output shape changed from `3x5` to `5x3`, and the identity output node was lost), while the other 8 targeted tests passed. After `ffa9975`, `GraphTransformationTests.GemmTransposeFusion*` passed all 9 tests; `GraphTransformationTests.*` reported 402 passed and 15 skipped, with no failures. The skipped cases require unavailable CUDA (2) or WebGPU (13) execution providers. Repository CLANGFORMAT lint and `git diff --check` passed. The native build's two changed source files matched the submitted files by SHA-256; upstream platform CI is still pending.
 - **CI failure and fix:** [first full-build failure](https://github.com/microsoft/onnxruntime/actions/runs/33845286359/job/101002854462) · [fix commit](https://github.com/LOGO127/onnxruntime/commit/031cc67)
 - **Upstream link:** [ONNX Runtime PR #32435](https://github.com/microsoft/onnxruntime/pull/32435)
 - **Related issue:** [ONNX Runtime issue #32418](https://github.com/microsoft/onnxruntime/issues/32418)
 - **Maintainer review:** [approval and follow-up question](https://github.com/microsoft/onnxruntime/pull/32435#pullrequestreview-5112190255)
 - **Audit follow-up:** [review response on related transpose paths](https://github.com/microsoft/onnxruntime/pull/32435#issuecomment-5539750598)
+- **Follow-up correction and native test evidence:** [review-thread reply](https://github.com/microsoft/onnxruntime/pull/32435#discussion_r3939156337). The earlier output guard did not cover `Apply` when an input transpose triggered the rule; `ffa9975` closes that gap.
 - **CLA confirmation:** [author's agreement comment](https://github.com/microsoft/onnxruntime/pull/32435#issuecomment-5548587260); `license/cla` completed successfully at 2026-09-05 01:59:27 UTC.
-- **Next action:** finish local follow-up regression validation, then monitor upstream CI and maintainer re-review
+- **Next action:** monitor upstream CI and maintainer re-review; repair concrete failures or address new feedback without duplicate review requests
 
 ## Rules
 
