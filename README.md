@@ -10,6 +10,8 @@ reviewable open-source work.
 
 </div>
 
+**Merged upstream:** [vLLM-Omni #7065](https://github.com/vllm-project/vllm-omni/pull/7065) — fixed Higgs Audio v3 voice-clone token validation while preserving reference-audio placement across chunked prefill.
+
 ---
 
 ## What I work on
@@ -33,8 +35,6 @@ reviewable open-source work.
 I prefer the engineering loop:
 
 **reproduce → understand the contract → make the smallest useful change → test → explain the evidence**
-
-**Merged upstream:** [vLLM-Omni #7065](https://github.com/vllm-project/vllm-omni/pull/7065) — fixed Higgs Audio v3 voice-clone token validation while preserving reference-audio placement across chunked prefill.
 
 ### Selected signals
 
