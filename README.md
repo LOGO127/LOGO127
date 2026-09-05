@@ -40,10 +40,10 @@ I prefer the engineering loop:
 
 | Area | Evidence | Current state |
 | --- | --- | --- |
-| **LLM serving** | [vLLM #55210](https://github.com/vllm-project/vllm/pull/55210) — streaming reasoning-parser boundaries | Human-approved; waiting for upstream CI |
+| **LLM serving** | [vLLM #55210](https://github.com/vllm-project/vllm/pull/55210) — streaming reasoning-parser boundaries | Community approval; maintainer review/CI pending |
 | **Multimodal serving** | [vLLM-Omni #7065](https://github.com/vllm-project/vllm-omni/pull/7065) — Higgs Audio v3 voice-clone token validation | **Merged** after collaborator review; core CI passed |
 | **Local AI runtime** | [Ollama #18234](https://github.com/ollama/ollama/pull/18234) — rootless Linux installation | Open; mergeable; review pending |
-| **Graph ML** | [PyG #10797](https://github.com/pyg-team/pytorch_geometric/pull/10797) — ONNX-safe scatter min/max path | Open; CI passed; review pending |
+| **Graph ML** | [PyG #10797](https://github.com/pyg-team/pytorch_geometric/pull/10797) — ONNX-safe scatter min/max path | Open; lint/docs checks passed; review pending |
 | **Vector search** | [Faiss #5574](https://github.com/facebookresearch/faiss/pull/5574) — Canberra zero-denominator correctness | Open; native generic/AVX2 tests passed; import/review pending |
 | **Training systems** | [LLaMA-Factory #10813](https://github.com/hiyouga/LlamaFactory/pull/10813) — tied-weight serialization · [GPT-NeoX #1419](https://github.com/EleutherAI/gpt-neox/pull/1419) — clean-runner CI setup · [DeepSpeed #8411](https://github.com/deepspeedai/DeepSpeed/pull/8411) — ZeRO gradient-norm fallback | Open; targeted checks passed; review pending |
 | **RL training** | [PrimeRL #3489](https://github.com/PrimeIntellect-ai/prime-rl/pull/3489) — W&B GraphQL transport compatibility | Ready for review; old/new W&B checks passed; maintainer CI approval pending |
