@@ -4,7 +4,7 @@ This log records work that an upstream maintainer can verify. Status labels are 
 
 ## 2026-09-05 — vLLM-Omni PR #7089
 
-- **Status:** open and mergeable; DCO and upstream pre-commit passed; wheel/docs builds and maintainer review pending; not merged.
+- **Status:** open; DCO, upstream pre-commit, Python 3.11/3.12 wheel builds and docs passed at unchanged head `f4783af77`; maintainer review pending; not merged. These are the five reported checks, not a claim of GPU/model validation.
 - **Why this matters:** the changed-file mypy hook reports 35 diagnostics across the existing benchmark patch module and its tests, blocking otherwise small local benchmark fixes.
 - **Scope:** validate missing OmniInteract metadata before that sample's cleanup; clarify dynamic module/metric types, numeric metric values, async context alternatives, LoRA assignment iterators, and generation/embedding length shapes. Numeric conversions and defaults are preserved; no lint policy bypass, new dependency, or performance claim.
 - **Validation:** Python 3.12.3, vLLM 0.28.0, torch 2.11.0+cpu, transformers 5.14.1; base `5d7fdf935`, signed head `f4783af77`. New metadata tests: **2 failed / 1 passed on base**; patched patch/metrics suite: **47 passed**, rerun before publication. All applicable changed-file pre-commit hooks, including mypy 3.10, passed; manual mypy 3.12 passed. Tested and submitted file blobs match.
@@ -15,9 +15,9 @@ This log records work that an upstream maintainer can verify. Status labels are 
 
 ## 2026-09-05 — DeePMD-kit PR #6010
 
-- **Status:** PR open and mergeable; triage, pre-commit, CodeRabbit and docs checks passed; seven Actions workflows await maintainer approval; no maintainer review yet; not merged. CodeRabbit completion is not review approval: one actionable spin-padding finding remains.
+- **Status:** PR open and mergeable at `3f54a70`; the spin-padding review finding has a tested follow-up and an author reply. New-head pre-commit.ci and triage passed; bot/docs checks and maintainer review remain pending; not merged. Previous-head check results do not certify the new commit.
 - **Why this matters:** virtual atoms were included in force and Hessian error numerators, denominators and aggregation weights. Zero padding artificially lowers errors; NaN padding contaminates them.
-- **Scope:** select real force components and real-real Hessian entries before error computation, including optional force preferences; omit empty atom metrics and zero-weight force metrics; preserve padded detail-file layouts. Spin force splitting, atomic-energy errors and energy/virial per-atom normalization are unchanged.
+- **Scope:** select real force components and real-real Hessian entries before error computation, including optional force preferences; omit empty atom metrics and zero-weight force metrics; preserve padded detail-file layouts. The review follow-up extends valid-element selection to both spin-force layouts while preserving legacy spin-partner mapping. Atomic-energy errors and energy/virial per-atom normalization are unchanged.
 - **Validation:** independent source build at upstream `58a12b1`, WSL Ubuntu, Python 3.12.3, PyTorch 2.11.0+cpu, TensorFlow CPU 2.21.0, e3nn 0.6.0 and native compiled operators. Final new tests against unmodified production code: **14 failed / 5 passed**; with the fix all **19 new tests passed**. Final focused/related run: **56 passed**, including existing TensorFlow/PyTorch inference/testing, spin, weighted aggregation and Hessian loading.
 - **Integration evidence:** a real initialized Hessian-enabled PyTorch checkpoint, on-disk mixed-type data and separate-process `dp test`; no mocked inference in the integration test. Checks cover zero/NaN labels, one-frame vs multi-frame chunks, exact valid-element weights, and detail-file layout. This is not a trained-potential accuracy benchmark.
 - **Submission checks:** full-repository Ruff 0.16.0 lint/format, changed-file isort 9.0.0b1 and `git diff --check` passed; all three tested source blobs match commit `3c055cc430637b3741fcdc3b6201a407f3144300`.
@@ -25,8 +25,9 @@ This log records work that an upstream maintainer can verify. Status labels are 
 - **Upstream link:** [DeePMD-kit PR #6010](https://github.com/deepmodeling/deepmd-kit/pull/6010)
 - **Related issue:** [DeePMD-kit issue #5928](https://github.com/deepmodeling/deepmd-kit/issues/5928)
 - **AI assistance:** implementation and local verification prepared with OpenAI Codex, disclosed in the PR.
-- **Review follow-up:** [CodeRabbit's spin-padding finding](https://github.com/deepmodeling/deepmd-kit/pull/6010#discussion_r3939939259) was reproduced against the real metric implementation in both spin-force layouts: zero padding changes a real-atom MAE from 2 to 1, and NaN padding contaminates the statistic. This is an existing spin path outside the original fix, not a demonstrated newly introduced regression. A correction and broader spin regressions are still pending.
-- **Next action:** address the verified spin-padding finding while preserving detail-file alignment; continue learning the scientific invariants of graph batching and evaluation. Local validation is not upstream approval or a core-contributor designation.
+- **Review follow-up:** [Addressed in `3f54a70`](https://github.com/deepmodeling/deepmd-kit/pull/6010#discussion_r3940283885). The new controlled spin tests give **82 failed / 22 passed** on the previous production file; two real spin-checkpoint tests also fail there. With the correction, all **106 new tests pass**, the combined related suite gives **162 passed**, and four additional existing TensorFlow spin-inference tests pass. Tests cover padded NaNs on either/both inputs, valid scalar weights, empty selections, missing labels, unchanged detail arrays and a separate-process PyTorch `dp test`. Legacy padded selection is covered with controlled arrays; no new padded-TF-checkpoint integration is claimed.
+- **Follow-up checks:** Ruff, isort, velin at Git tag `0.0.12`, diff checks and explicit execution of the repository's E8001/E8002 checker passed. The normal Pylint entry point emitted checker-registration warnings; a complete local pre-commit run is not claimed. The new-head upstream pre-commit.ci check independently passed.
+- **Next action:** await upstream re-review/CI and address substantive findings. The author reply does not mark the review thread resolved or imply maintainer approval, a merge, or a core-contributor designation.
 
 ## 2026-09-05 — DeePMD-kit PR #6008
 
