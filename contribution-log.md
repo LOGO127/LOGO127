@@ -2,6 +2,83 @@
 
 This log records work that an upstream maintainer can verify. Status labels are intentionally conservative.
 
+## 📍 Portfolio snapshot — 2026-09-07
+
+State/head metadata checked on **September 6, 2026, 20:59 UTC** (September 7,
+04:59 Asia/Shanghai): **29 tracked upstream PRs — 26 open, 1 merged, 2 closed
+without merge**. Personal-repository PRs are excluded. This refresh checks PR
+state, not new maintainer review, CI completion, or hardware acceptance. Every
+entry below links to its upstream record; the live PR remains authoritative.
+
+| Project | PRs | State at snapshot |
+| --- | --- | --- |
+| vLLM-Omni | [#7065](https://github.com/vllm-project/vllm-omni/pull/7065) | Merged |
+| Agentic API | [#257](https://github.com/vllm-project/agentic-api/pull/257) | Open draft |
+| Agentic API | [#258](https://github.com/vllm-project/agentic-api/pull/258) | Open |
+| vLLM-Omni | [#7089](https://github.com/vllm-project/vllm-omni/pull/7089), [#7098](https://github.com/vllm-project/vllm-omni/pull/7098), [#7151](https://github.com/vllm-project/vllm-omni/pull/7151) | Open |
+| DeePMD-kit | [#6007](https://github.com/deepmodeling/deepmd-kit/pull/6007), [#6008](https://github.com/deepmodeling/deepmd-kit/pull/6008), [#6010](https://github.com/deepmodeling/deepmd-kit/pull/6010) | Open |
+| MACE | [#1712](https://github.com/ACEsuit/mace/pull/1712) | Open |
+| vLLM | [#55210](https://github.com/vllm-project/vllm/pull/55210) | Open |
+| OpenAI Python | [#3790](https://github.com/openai/openai-python/pull/3790) | Open |
+| SGLang | [#37935](https://github.com/sgl-project/sglang/pull/37935) | Open |
+| DeepSpeed | [#8411](https://github.com/deepspeedai/DeepSpeed/pull/8411) | Open |
+| FlashAttention | [#2858](https://github.com/Dao-AILab/flash-attention/pull/2858) | Open |
+| Triton | [#11580](https://github.com/triton-lang/triton/pull/11580) | Open |
+| ONNX Runtime | [#32435](https://github.com/microsoft/onnxruntime/pull/32435) | Open |
+| PyTorch Geometric | [#10797](https://github.com/pyg-team/pytorch_geometric/pull/10797) | Open |
+| Faiss | [#5574](https://github.com/facebookresearch/faiss/pull/5574) | Open |
+| LLaMA-Factory | [#10813](https://github.com/hiyouga/LlamaFactory/pull/10813) | Open |
+| GPT-NeoX | [#1419](https://github.com/EleutherAI/gpt-neox/pull/1419) | Open |
+| OLMo-core | [#858](https://github.com/allenai/OLMo-core/pull/858), [#860](https://github.com/allenai/OLMo-core/pull/860) | Open |
+| PrimeRL | [#3489](https://github.com/PrimeIntellect-ai/prime-rl/pull/3489) | Open |
+| bitsandbytes | [#2073](https://github.com/bitsandbytes-foundation/bitsandbytes/pull/2073) | Open |
+| Ollama | [#18234](https://github.com/ollama/ollama/pull/18234) | Open |
+| Stanford CS336 lectures | [#47](https://github.com/stanford-cs336/lectures/pull/47) | Open |
+| TRL | [#7037](https://github.com/huggingface/trl/pull/7037), [#7038](https://github.com/huggingface/trl/pull/7038) | Closed, not merged |
+
+Earlier dated entries preserve validation and review history; their old CI/review
+descriptions are not a live dashboard. No maintainer role, module ownership, or
+core-contributor designation is claimed.
+
+## 🔧 Current main line — Agentic API
+
+- **Published draft:** [#257](https://github.com/vllm-project/agentic-api/pull/257),
+  `51c3613`, adds bounded transient response sessions to core. It does not activate
+  the WebSocket adapter or close [issue #238](https://github.com/vllm-project/agentic-api/issues/238).
+- **Published independent fix:** [#258](https://github.com/vllm-project/agentic-api/pull/258),
+  `fab52ff`, rejects unsupported message files on typed Responses paths. It preserves
+  eligible raw-proxy requests and structured tool-output files; it does not implement
+  uploads, OCR, or document parsing.
+- **Unpublished follow-up:** a two-file correction releases the parent's retained
+  budget before an idle-lane handoff. It still awaits personal review/DCO and is not
+  included in #257's published head.
+- **Local integration evidence:** the same 74 WebSocket cases passed with PostgreSQL
+  fixtures and SQLite controls, including disabled-storage cases. Real local sockets
+  and mocked inference/search upstreams were used; this is not live vLLM or vision-model
+  validation. The diagnostic combines #257, other-author #240, an unpublished adapter,
+  the pending follow-up, and only the known SQL qualification from other-author #166.
+  It is not validation of the published PR tree or an original claim to those authors'
+  fixes. Without the SQL dependency, the standalone follow-up retains two known
+  PostgreSQL failures.
+- **Next boundary:** agree the integration/admission policy with maintainers; finish
+  personal review/signing of the isolated follow-up. No mixed diagnostic tree will be
+  presented as a standalone contribution. The [dated scope and evidence update](https://github.com/vllm-project/agentic-api/issues/238#issuecomment-5553404423)
+  records the source boundaries and open questions.[^session]
+
+## 📚 Other newly recorded submissions
+
+These entries add missing public links; they do not claim new merges or fresh CI results.
+
+- [vLLM-Omni #7098](https://github.com/vllm-project/vllm-omni/pull/7098): Higgs Audio v3
+  diagnostics for skipped reference-audio substitution; open at `6d15913`.
+- [vLLM-Omni #7151](https://github.com/vllm-project/vllm-omni/pull/7151): one shared
+  deadline across correlated RPC submission and result waiting; open at `7815bdc`.
+- [MACE #1712](https://github.com/ACEsuit/mace/pull/1712): reject HTML before caching
+  model downloads; open at `2718b81`. This is download reliability, not a new potential
+  or trained-model accuracy result.
+
+[^session]: LOGO127. [Agentic API issue #238: dated reproduction, integration proposal, and September 6 validation update](https://github.com/vllm-project/agentic-api/issues/238#issuecomment-5553404423). The update is the contributor's report, not maintainer approval.
+
 ## 2026-09-05 — vLLM-Omni PR #7089
 
 - **Status:** open; DCO, upstream pre-commit, Python 3.11/3.12 wheel builds and docs passed at unchanged head `f4783af77`; maintainer review pending; not merged. These are the five reported checks, not a claim of GPU/model validation.
@@ -165,14 +242,14 @@ This log records work that an upstream maintainer can verify. Status labels are 
 
 ## 2026-09-04 — Hugging Face TRL PR #7038
 
-- **Status:** PR open; PR template check passed; DCO-signed; maintainer review pending; not merged
+- **Status correction (2026-09-07):** closed without merge on September 5 at 14:42 UTC; no accepted contribution is claimed. Earlier validation below is historical. Related [#7037](https://github.com/huggingface/trl/pull/7037) is also closed without merge.
 - **Why this matters:** the Liger fused GRPO path cannot materialize router logits, so a Mixture-of-Experts auxiliary loss would otherwise be silently omitted from the training objective.
 - **Scope:** add a GRPO fail-fast guard, document the `router_aux_loss_coef=0.0` requirement, and add an initialization regression test; DPO/KTO behavior is unchanged.
 - **Validation:** Ruff check, Ruff format, and `git diff --check` passed; the focused test is skipped locally because `liger-kernel` is unavailable; manual tiny-MoE construction confirmed the expected `ValueError`.
 - **Upstream link:** [Hugging Face TRL PR #7038](https://github.com/huggingface/trl/pull/7038)
 - **Related issue:** [TRL issue #7009](https://github.com/huggingface/trl/issues/7009)
 - **Review follow-up:** [design and validation note](https://github.com/huggingface/trl/pull/7038#issuecomment-5531032674)
-- **Next action:** respond to maintainer feedback and revise only if requested
+- **Next action:** no active review request; retain the record and do not reopen or resubmit without a substantive new basis.
 
 ## 2026-09-04 — OpenAI Python PR #3790
 
