@@ -2,6 +2,26 @@
 
 This log records work that an upstream maintainer can verify. Status labels are intentionally conservative.
 
+## 2026-09-08 — New draft and published session follow-up
+
+- **XGrammar [#881](https://github.com/mlc-ai/xgrammar/pull/881)** is an open draft at
+  `a79fd29`. It prevents malformed function-tool definitions from falling through
+  validation as builtin tools. Three relevant native-backed Python test files pass
+  locally: **1,489 tests**. Loading the original schema module as a negative control
+  gives **5 failures / 1,484 passes**, with all five new rejection cases failing.
+  The PR documents the source-library selection and local build setup. This is not
+  full-project, GPU/model, or upstream CI verification; AI assistance is disclosed.
+- **Agentic API [#257](https://github.com/vllm-project/agentic-api/pull/257)** now
+  includes personally signed follow-up `01ebcb7`, verified on the published head.
+  The two-file change releases the ending lease's retained parent checkpoint before
+  publishing idle state and waking waiters. The
+  [delivery report](https://github.com/vllm-project/agentic-api/pull/257#issuecomment-5578786435)
+  scopes the validation and records a transient failure on the first full test run.
+  It remains a core-only draft, not the complete WebSocket implementation or assigned
+  module ownership. The historical "unpublished / awaiting DCO" entry below is superseded.
+
+These are targeted publication updates, not new merges or a full-portfolio audit.
+
 ## 2026-09-08 — Verified merge update
 
 [DeePMD-kit #6010](https://github.com/deepmodeling/deepmd-kit/pull/6010) was merged by
@@ -50,7 +70,10 @@ Earlier dated entries preserve validation and review history; their old CI/revie
 descriptions are not a live dashboard. No maintainer role, module ownership, or
 core-contributor designation is claimed.
 
-## 🔧 Current main line — Agentic API
+## 🔧 Historical Agentic API snapshot — September 6, 2026
+
+The September 8 publication update above supersedes the signature and follow-up
+status in this snapshot. Its mixed-tree testing evidence remains historical.
 
 - **Published draft:** [#257](https://github.com/vllm-project/agentic-api/pull/257),
   `51c3613`, adds bounded transient response sessions to core. It does not activate
