@@ -31,6 +31,7 @@ outputs. Approved and merged by project member `njzjz` on September 7, 2026 (UTC
 | --- | --- | --- |
 | **Agentic API** | Bounded response sessions; continuation and storage contracts | [#257](https://github.com/vllm-project/agentic-api/pull/257) — draft; [#258](https://github.com/vllm-project/agentic-api/pull/258) — open[^2] |
 | **vLLM-Omni** | Audio diagnostics; request lifecycle and timeout correctness | [#7098](https://github.com/vllm-project/vllm-omni/pull/7098), [#7151](https://github.com/vllm-project/vllm-omni/pull/7151) — open[^3] |
+| **Vime** | Post-training data-source ordering and resume correctness | [Issue #414](https://github.com/vllm-project/vime/issues/414) — reported; local patch unpublished |
 | **XGrammar** | Structured-generation tool input validation | [#881](https://github.com/mlc-ai/xgrammar/pull/881) — draft; local regression verified, awaiting review[^7] |
 | **DeePMD-kit** | Ragged graph batching; charge/spin and numerical correctness | [#6008](https://github.com/deepmodeling/deepmd-kit/pull/6008) — open at last check[^4]; [#6010](https://github.com/deepmodeling/deepmd-kit/pull/6010) — merged[^6] |
 | **MACE** | Scientific model-download reliability | [#1712](https://github.com/ACEsuit/mace/pull/1712) — open[^5] |
@@ -49,6 +50,10 @@ separates merged work, review candidates, and unpublished experiments.
 | [cs336.2026](https://github.com/LOGO127/cs336.2026) | Systems-first learning and implementation notes |
 
 ## 🔍 Engineering approach
+
+[Case study: preserving Vime's sample stream across epochs](case-studies/vime-sample-cursor.md)
+— matched baseline/candidate tests and real cursor save/load; issue reported,
+human verification and upstream agreement pending, not an accepted fix.
 
 [Case study: validating an XGrammar parser-history regression](case-studies/xgrammar-parser-history.md)
 — attributed fork candidate with deterministic tests and bytewise mask comparisons;

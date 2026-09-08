@@ -2,6 +2,24 @@
 
 This log records work that an upstream maintainer can verify. Status labels are intentionally conservative.
 
+## 2026-09-08 — Vime multi-epoch data-source bug reported
+
+[Issue #414](https://github.com/vllm-project/vime/issues/414) reproduces a request
+for eight prompt groups returning only six from a three-row dataset, with its
+cursor beyond the dataset length. A local candidate preserves repeated-sampling
+order across multiple epochs, shuffle, buffered top-up and cursor save/load.
+
+Matched tests: baseline **16 failed / 26 passed**, candidate **42 passed**.
+One baseline failure checks the proposed empty-dataset error policy rather than
+an existing exception contract. Full configured pre-commit passed on both source
+versions in an isolated Linux clone. These are CPU data-source checks, not model
+training, GPU rollout or upstream CI results.
+
+The [case study](case-studies/vime-sample-cursor.md) documents scope and limits.
+This is an **authored issue with an unpublished local patch**, not an accepted
+contribution. Maintainer agreement and the project's required human review,
+end-to-end validation and sign-off remain outstanding. AI assistance is disclosed.
+
 ## 2026-09-08 — LLM Compressor save-recovery bug reported
 
 [Issue #3149](https://github.com/vllm-project/llm-compressor/issues/3149) documents
