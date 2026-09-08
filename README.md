@@ -50,6 +50,10 @@ separates merged work, review candidates, and unpublished experiments.
 
 ## 🔍 Engineering approach
 
+[Case study: validating an XGrammar parser-history regression](case-studies/xgrammar-parser-history.md)
+— attributed fork candidate with deterministic tests and bytewise mask comparisons;
+upstream coordination pending, not merged.
+
 - Reproduce failures and preserve passing controls before changing behavior.
 - Keep patches scoped, with explicit dependency and compatibility boundaries.
 - Separate local tests, upstream CI, and actual model/hardware validation.

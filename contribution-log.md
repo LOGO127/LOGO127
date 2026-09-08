@@ -2,6 +2,22 @@
 
 This log records work that an upstream maintainer can verify. Status labels are intentionally conservative.
 
+## 2026-09-08 — Attributed XGrammar verification candidate
+
+[Parser-history case study](case-studies/xgrammar-parser-history.md): independent
+validation of thincal's #873 diagnosis and geometric-growth proposal. The
+[two-file fork commit](https://github.com/LOGO127/xgrammar/commit/4e4d55b17c22fe8101b000d80d8de71c9c3aa96b)
+adds deterministic regressions and implements the attributed approach on rc3.
+108 C++ tests pass; both 20k-token trigger and clean-control runs compare
+80,052,000 mask bytes exactly, including replay and draft traversal.
+The case study records build details and measurement limitations. This remains a
+fork candidate awaiting scope coordination, **not an upstream PR or merge**.
+
+[XGrammar #882](https://github.com/mlc-ai/xgrammar/pull/882) is separately an open
+draft fixing standalone CMake's stub-package name. Native tests and an installed-wheel
+smoke test are recorded in the PR; personal review is still pending. No new merge
+or module ownership is claimed in this update.
+
 ## 2026-09-08 — New draft and published session follow-up
 
 - **XGrammar [#881](https://github.com/mlc-ai/xgrammar/pull/881)** is an open draft at
