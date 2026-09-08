@@ -54,6 +54,10 @@ separates merged work, review candidates, and unpublished experiments.
 — attributed fork candidate with deterministic tests and bytewise mask comparisons;
 upstream coordination pending, not merged.
 
+[Case study: checkpoint-save failure and distributed recovery](case-studies/llm-compressor-save-recovery.md)
+— real CPU/Gloo failure reproduction with a matched successful-save control;
+reported upstream, no fix or merge claimed.
+
 - Reproduce failures and preserve passing controls before changing behavior.
 - Keep patches scoped, with explicit dependency and compatibility boundaries.
 - Separate local tests, upstream CI, and actual model/hardware validation.

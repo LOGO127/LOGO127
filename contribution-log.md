@@ -2,6 +2,19 @@
 
 This log records work that an upstream maintainer can verify. Status labels are intentionally conservative.
 
+## 2026-09-08 — LLM Compressor save-recovery bug reported
+
+[Issue #3149](https://github.com/vllm-project/llm-compressor/issues/3149) documents
+temporary offload state left behind after a save-side exception. A real tiny
+Llama CPU reproduction was extended to two Gloo workers: the source raises the
+metadata error while its peer times out in the unmatched recovery broadcast.
+A matched valid-directory control saves, restores and reloads correctly.
+
+The [case study](case-studies/llm-compressor-save-recovery.md) records exact source
+revisions, the dependency-version correction, observations and limitations.
+This is an **authored bug report, not a PR or accepted fix**. Maintainer scope and
+assignment are pending. No new merge or ownership is implied.
+
 ## 2026-09-08 — Speculators evaluation-metrics fix submitted
 
 [Speculators #1096](https://github.com/vllm-project/speculators/pull/1096)
