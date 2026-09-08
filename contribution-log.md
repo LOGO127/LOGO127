@@ -2,6 +2,20 @@
 
 This log records work that an upstream maintainer can verify. Status labels are intentionally conservative.
 
+## 2026-09-08 — Router queue deadline reproduced across HTTP
+
+[Issue #247](https://github.com/vllm-project/router/issues/247): an inner
+token-refill timeout can override the queue's longer explicit budget. Matched
+baseline/candidate tests reproduce the effect in token acquisition, the
+production queue processor and loopback HTTP admission. A five-file local
+candidate preserves refill policy and public signatures.
+
+On CI-pinned Rust 1.95.0, the independent candidate passed 540 tests across
+four named targets, full formatting, and strict all-target/all-feature Clippy.
+The [case study](case-studies/router-queue-deadline.md) includes cache and
+toolchain pitfalls, controls and validation boundaries. **The patch is local,
+unpublished and awaiting personal review; no new merge or ownership is claimed.**
+
 ## 2026-09-08 — GuideLLM replay evidence and MACE review status
 
 [GuideLLM #1024](https://github.com/vllm-project/guidellm/issues/1024#issuecomment-5586175103):

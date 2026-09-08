@@ -51,6 +51,10 @@ separates merged work, review candidates, and unpublished experiments.
 
 ## 🔍 Engineering approach
 
+[Case study: honoring Router queue deadlines under contention](case-studies/router-queue-deadline.md)
+— token, queue and HTTP regressions; CI-pinned Rust validation;
+issue reported, local candidate awaiting personal review, no PR yet.
+
 [Case study: preserving heterogeneous conversation data in GuideLLM](case-studies/guidellm-conversation-jsonl.md)
 — identical baseline/candidate regressions and a real CLI-to-localhost HTTP check;
 issue evidence shared, patch unpublished and personal review pending.
