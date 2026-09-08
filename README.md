@@ -15,11 +15,15 @@ language models, with a growing focus on reliable inference and stateful agent A
 
 ---
 
-## ✅ Merged contribution
+## ✅ Merged contributions
 
 [vLLM-Omni #7065](https://github.com/vllm-project/vllm-omni/pull/7065) fixes Higgs Audio v3
 voice-clone token validation while preserving reference-audio placement across chunked
 prefill. Merged after collaborator review on September 4, 2026 (UTC).[^1]
+
+[DeePMD-kit #6010](https://github.com/deepmodeling/deepmd-kit/pull/6010) excludes virtual
+atoms from force, Hessian and spin-force error metrics while preserving padded detail
+outputs. Approved and merged by project member `njzjz` on September 7, 2026 (UTC).[^6]
 
 ## 🎯 Current contribution focus
 
@@ -27,7 +31,7 @@ prefill. Merged after collaborator review on September 4, 2026 (UTC).[^1]
 | --- | --- | --- |
 | **Agentic API** | Bounded response sessions; continuation and storage contracts | [#257](https://github.com/vllm-project/agentic-api/pull/257) — draft; [#258](https://github.com/vllm-project/agentic-api/pull/258) — open[^2] |
 | **vLLM-Omni** | Audio diagnostics; request lifecycle and timeout correctness | [#7098](https://github.com/vllm-project/vllm-omni/pull/7098), [#7151](https://github.com/vllm-project/vllm-omni/pull/7151) — open[^3] |
-| **DeePMD-kit** | Ragged graph batching; charge/spin and numerical correctness | [#6008](https://github.com/deepmodeling/deepmd-kit/pull/6008), [#6010](https://github.com/deepmodeling/deepmd-kit/pull/6010) — open[^4] |
+| **DeePMD-kit** | Ragged graph batching; charge/spin and numerical correctness | [#6008](https://github.com/deepmodeling/deepmd-kit/pull/6008) — open at last check[^4]; [#6010](https://github.com/deepmodeling/deepmd-kit/pull/6010) — merged[^6] |
 | **MACE** | Scientific model-download reliability | [#1712](https://github.com/ACEsuit/mace/pull/1712) — open[^5] |
 
 These are contribution areas I am working toward maintaining, not assigned module
@@ -59,5 +63,6 @@ separates merged work, review candidates, and unpublished experiments.
 [^1]: vLLM-Omni. [Merged PR #7065](https://github.com/vllm-project/vllm-omni/pull/7065).
 [^2]: Agentic API. [Core session draft #257](https://github.com/vllm-project/agentic-api/pull/257), [typed Responses file validation #258](https://github.com/vllm-project/agentic-api/pull/258). Status checked September 6, 2026, 20:59 UTC; no WebSocket integration or module ownership is claimed.
 [^3]: vLLM-Omni. [Reference-audio diagnostics #7098](https://github.com/vllm-project/vllm-omni/pull/7098), [shared RPC deadline #7151](https://github.com/vllm-project/vllm-omni/pull/7151). Open at the same check.
-[^4]: DeePMD-kit. [Ragged charge/spin batching #6008](https://github.com/deepmodeling/deepmd-kit/pull/6008), [padding-safe force/Hessian metrics #6010](https://github.com/deepmodeling/deepmd-kit/pull/6010). Open at the same check.
+[^4]: DeePMD-kit. [Ragged charge/spin batching #6008](https://github.com/deepmodeling/deepmd-kit/pull/6008). Open at the September 6 check; #6010's later merge is recorded separately below.
 [^5]: MACE. [Reject HTML before caching model downloads #1712](https://github.com/ACEsuit/mace/pull/1712). Open at the same check.
+[^6]: DeePMD-kit. [Merge commit 28b7d068](https://github.com/deepmodeling/deepmd-kit/commit/28b7d068801716765ab8119257f814596e49a10c). Merged September 7, 2026, 22:14 UTC (September 8, 06:14 Asia/Shanghai); verified directly on September 8. This is an accepted contribution, not an assigned module-maintainer role.

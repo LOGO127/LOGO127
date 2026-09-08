@@ -2,7 +2,17 @@
 
 This log records work that an upstream maintainer can verify. Status labels are intentionally conservative.
 
-## 📍 Portfolio snapshot — 2026-09-07
+## 2026-09-08 — Verified merge update
+
+[DeePMD-kit #6010](https://github.com/deepmodeling/deepmd-kit/pull/6010) was merged by
+`njzjz` at **September 7, 2026, 22:14:15 UTC** (September 8, 06:14 Asia/Shanghai),
+as [28b7d068](https://github.com/deepmodeling/deepmd-kit/commit/28b7d068801716765ab8119257f814596e49a10c).
+The preceding [human approval](https://github.com/deepmodeling/deepmd-kit/pull/6010#pullrequestreview-5134259543)
+applies to head `148724c`. This supersedes #6010's historical open status below.
+Together with vLLM-Omni #7065, two external merged contributions are directly verified.
+This is a targeted update, not a fresh full-portfolio audit or a module-ownership claim.
+
+## 📍 Historical portfolio snapshot — 2026-09-07
 
 State/head metadata checked on **September 6, 2026, 20:59 UTC** (September 7,
 04:59 Asia/Shanghai): **29 tracked upstream PRs — 26 open, 1 merged, 2 closed
@@ -92,7 +102,7 @@ These entries add missing public links; they do not claim new merges or fresh CI
 
 ## 2026-09-05 — DeePMD-kit PR #6010
 
-- **Status:** PR open and mergeable at documentation-only follow-up `148724c`; pre-commit.ci, triage and CodeRabbit passed. Docs and maintainer review remain pending, with seven Actions workflows awaiting authorization. CodeRabbit confirmed the correction and resolved its original spin-padding thread; its final-head review has no actionable findings. This is automated feedback, not maintainer approval or a merge.
+- **Status (updated September 8):** merged by `njzjz` at `28b7d068` after human approval of head `148724c`. Earlier authorization waits and bot-only review descriptions are historical. GPU execution is not established by skipped CUDA test jobs.
 - **Why this matters:** virtual atoms were included in force and Hessian error numerators, denominators and aggregation weights. Zero padding artificially lowers errors; NaN padding contaminates them.
 - **Scope:** select real force components and real-real Hessian entries before error computation, including optional force preferences; omit empty atom metrics and zero-weight force metrics; preserve padded detail-file layouts. The review follow-up extends valid-element selection to both spin-force layouts while preserving legacy spin-partner mapping. Atomic-energy errors and energy/virial per-atom normalization are unchanged.
 - **Validation:** independent source build at upstream `58a12b1`, WSL Ubuntu, Python 3.12.3, PyTorch 2.11.0+cpu, TensorFlow CPU 2.21.0, e3nn 0.6.0 and native compiled operators. Final new tests against unmodified production code: **14 failed / 5 passed**; with the fix all **19 new tests passed**. Final focused/related run: **56 passed**, including existing TensorFlow/PyTorch inference/testing, spin, weighted aggregation and Hessian loading.
@@ -105,7 +115,7 @@ These entries add missing public links; they do not claim new merges or fresh CI
 - **Review follow-up:** [Addressed in `3f54a70`](https://github.com/deepmodeling/deepmd-kit/pull/6010#discussion_r3940283885). The new controlled spin tests give **82 failed / 22 passed** on the previous production file; two real spin-checkpoint tests also fail there. With the correction, all **106 new tests pass**, the combined related suite gives **162 passed**, and four additional existing TensorFlow spin-inference tests pass. Tests cover padded NaNs on either/both inputs, valid scalar weights, empty selections, missing labels, unchanged detail arrays and a separate-process PyTorch `dp test`. Legacy padded selection is covered with controlled arrays; no new padded-TF-checkpoint integration is claimed.
 - **Follow-up checks:** Ruff, isort, velin at Git tag `0.0.12`, diff checks and explicit execution of the repository's E8001/E8002 checker passed. The normal Pylint entry point emitted checker-registration warnings; a complete local pre-commit run is not claimed. The new-head upstream pre-commit.ci check independently passed.
 - **Documentation follow-up:** `148724c` adds 13 missing test docstrings without changing execution logic; all four PR test files were rerun: **125 passed**. The production blob and two spin-test blobs are unchanged. The completed final-head bot check reports 100.00% docstring coverage.
-- **Next action:** await upstream re-review/CI and address substantive findings. The original thread was resolved by CodeRabbit, not by the author. This is not maintainer approval, a merge, or a core-contributor designation.
+- **Next action:** maintain the merged behavior if follow-up regressions are reported. The earlier spin-padding thread was resolved by CodeRabbit; subsequent human approval and merge are linked above. No core-contributor designation is claimed.
 
 ## 2026-09-05 — DeePMD-kit PR #6008
 
