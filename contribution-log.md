@@ -2,6 +2,22 @@
 
 This log records work that an upstream maintainer can verify. Status labels are intentionally conservative.
 
+## 2026-09-08 — GuideLLM replay evidence and MACE review status
+
+[GuideLLM #1024](https://github.com/vllm-project/guidellm/issues/1024#issuecomment-5586175103):
+contributed reproduction evidence to an existing issue. Heterogeneous graph columns
+acquire null containers during JSONL loading and crash request finalization. The
+[case study](case-studies/guidellm-conversation-jsonl.md) records matched failing and
+passing controls, full local checks and an exact-fixture CLI benchmark against
+MockServer. The patch is **unpublished, awaiting personal review and sign-off**;
+neither the issue's authorship nor an upstream fix is claimed.
+
+[MACE #1712](https://github.com/ACEsuit/mace/pull/1712) is **approved but still open**
+at this check. [MACE #1717](https://github.com/ACEsuit/mace/pull/1717), a gated-block
+TorchScript export fix with scalar/gated and CLI-export regressions, is an **open
+draft awaiting review**. Local CPU export tests do not certify the reporter's exact
+checkpoint or an actual LAMMPS simulation. These updates add no merged contribution.
+
 ## 2026-09-08 — Vime multi-epoch data-source bug reported
 
 [Issue #414](https://github.com/vllm-project/vime/issues/414) reproduces a request

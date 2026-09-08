@@ -34,7 +34,7 @@ outputs. Approved and merged by project member `njzjz` on September 7, 2026 (UTC
 | **Vime** | Post-training data-source ordering and resume correctness | [Issue #414](https://github.com/vllm-project/vime/issues/414) — reported; local patch unpublished |
 | **XGrammar** | Structured-generation tool input validation | [#881](https://github.com/mlc-ai/xgrammar/pull/881) — draft; local regression verified, awaiting review[^7] |
 | **DeePMD-kit** | Ragged graph batching; charge/spin and numerical correctness | [#6008](https://github.com/deepmodeling/deepmd-kit/pull/6008) — open at last check[^4]; [#6010](https://github.com/deepmodeling/deepmd-kit/pull/6010) — merged[^6] |
-| **MACE** | Scientific model-download reliability | [#1712](https://github.com/ACEsuit/mace/pull/1712) — open[^5] |
+| **MACE** | Scientific model downloads and TorchScript export | [#1712](https://github.com/ACEsuit/mace/pull/1712) — approved, not merged; [#1717](https://github.com/ACEsuit/mace/pull/1717) — draft[^5] |
 
 These are contribution areas I am working toward maintaining, not assigned module
 ownership. Open and draft PRs are not accepted contributions. The
@@ -50,6 +50,10 @@ separates merged work, review candidates, and unpublished experiments.
 | [cs336.2026](https://github.com/LOGO127/cs336.2026) | Systems-first learning and implementation notes |
 
 ## 🔍 Engineering approach
+
+[Case study: preserving heterogeneous conversation data in GuideLLM](case-studies/guidellm-conversation-jsonl.md)
+— identical baseline/candidate regressions and a real CLI-to-localhost HTTP check;
+issue evidence shared, patch unpublished and personal review pending.
 
 [Case study: preserving Vime's sample stream across epochs](case-studies/vime-sample-cursor.md)
 — matched baseline/candidate tests and real cursor save/load; issue reported,
@@ -78,6 +82,6 @@ reported upstream, no fix or merge claimed.
 [^2]: Agentic API. [Core session draft #257](https://github.com/vllm-project/agentic-api/pull/257), [typed Responses file validation #258](https://github.com/vllm-project/agentic-api/pull/258). Status checked September 6, 2026, 20:59 UTC; no WebSocket integration or module ownership is claimed.
 [^3]: vLLM-Omni. [Reference-audio diagnostics #7098](https://github.com/vllm-project/vllm-omni/pull/7098), [shared RPC deadline #7151](https://github.com/vllm-project/vllm-omni/pull/7151). Open at the same check.
 [^4]: DeePMD-kit. [Ragged charge/spin batching #6008](https://github.com/deepmodeling/deepmd-kit/pull/6008). Open at the September 6 check; #6010's later merge is recorded separately below.
-[^5]: MACE. [Reject HTML before caching model downloads #1712](https://github.com/ACEsuit/mace/pull/1712). Open at the same check.
+[^5]: MACE. [Model-download validation #1712](https://github.com/ACEsuit/mace/pull/1712) is approved but open; [gated-block TorchScript export #1717](https://github.com/ACEsuit/mace/pull/1717) is an open draft. Status checked September 8, 2026. Neither is counted as merged.
 [^6]: DeePMD-kit. [Merge commit 28b7d068](https://github.com/deepmodeling/deepmd-kit/commit/28b7d068801716765ab8119257f814596e49a10c). Merged September 7, 2026, 22:14 UTC (September 8, 06:14 Asia/Shanghai); verified directly on September 8. This is an accepted contribution, not an assigned module-maintainer role.
 [^7]: XGrammar. [Malformed function-tool validation #881](https://github.com/mlc-ai/xgrammar/pull/881), head `a79fd29`, checked September 8, 2026. Draft publication is not upstream acceptance; local tests are not upstream CI.
