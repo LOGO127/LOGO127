@@ -2,6 +2,25 @@
 
 This log records work that an upstream maintainer can verify. Status labels are intentionally conservative.
 
+## 2026-09-08 — Speculators evaluation-metrics fix submitted
+
+[Speculators #1096](https://github.com/vllm-project/speculators/pull/1096)
+addresses the multi-engine acceptance-rate undercount reported in
+[#1095](https://github.com/vllm-project/speculators/issues/1095). The parser now
+sums per-position counters across engines, matching scalar draft aggregation,
+instead of retaining the largest counter after sorting.
+
+Personally signed commit `2cfe086` contains a one-line production fix and
+regression tests. Local script tests: **164 passed**, including single-engine
+controls, two-engine aggregation, snapshot subtraction and boundary cases.
+The PR discloses AI assistance and incomplete full type checking; no live
+multi-GPU reproduction or throughput improvement is claimed.
+
+At publication follow-up, this is **open, not merged**. DCO passed; maintainer
+approval remains required. Automated review and documentation checks are
+pending. These are timestamped observations, not permanent CI guarantees or
+a claim of core-contributor status.
+
 ## 2026-09-08 — Attributed XGrammar verification candidate
 
 [Parser-history case study](case-studies/xgrammar-parser-history.md): independent
