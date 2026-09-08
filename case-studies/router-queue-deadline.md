@@ -1,8 +1,10 @@
 # When a four-second queue budget expires after one second
 
-Status: [Router issue #247](https://github.com/vllm-project/router/issues/247)
-reported; local candidate awaiting personal review. No PR, accepted fix or
-module ownership is claimed. Investigation and implementation used Codex.
+Status as of September 8, 2026: [PR #248](https://github.com/vllm-project/router/pull/248)
+submitted for [issue #247](https://github.com/vllm-project/router/issues/247)
+after personal review and sign-off of commit `520303f`. DCO passed; Buildkite
+build 791 is pending. The PR is open, not merged; no accepted fix or module
+ownership is claimed. Investigation and implementation used Codex.
 
 ## Failure and bounded fix
 
@@ -48,4 +50,4 @@ included in the library count.
 
 This is local Linux/WSL validation, not upstream CI, the full repository test
 matrix, real GPU inference, performance measurement or evidence of adoption.
-The next contribution milestone is reviewed publication, not another test count.
+The next milestone is independent upstream CI and maintainer review.

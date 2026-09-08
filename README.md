@@ -53,7 +53,7 @@ separates merged work, review candidates, and unpublished experiments.
 
 [Case study: honoring Router queue deadlines under contention](case-studies/router-queue-deadline.md)
 — token, queue and HTTP regressions; CI-pinned Rust validation;
-issue reported, local candidate awaiting personal review, no PR yet.
+[PR #248](https://github.com/vllm-project/router/pull/248) submitted after personal review and sign-off; awaiting upstream review, not merged.
 
 [Case study: preserving heterogeneous conversation data in GuideLLM](case-studies/guidellm-conversation-jsonl.md)
 — identical baseline/candidate regressions and a real CLI-to-localhost HTTP check;
