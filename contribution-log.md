@@ -2,6 +2,24 @@
 
 This log records work that an upstream maintainer can verify. Status labels are intentionally conservative.
 
+## 2026-09-09 — MACE merged; four verified upstream contributions
+
+[MACE #1712](https://github.com/ACEsuit/mace/pull/1712), authored by `LOGO127`,
+was approved and merged by `aacostadiaz` at 10:37 UTC (18:37 Asia/Shanghai).
+[Merge commit 52302120](https://github.com/ACEsuit/mace/commit/5230212049b067e91ae74efb700f86d3c7cba098)
+records the fix rejecting HTML before caching model downloads. This joins
+vLLM-Omni #7065, DeePMD-kit #6010 and Speculators #1096: four accepted upstream
+contributions, not a core-maintainer appointment.
+
+Two publication updates supersede the older unpublished-candidate notes below:
+[Vime #416](https://github.com/vllm-project/vime/pull/416), signed head `4cfa084`,
+and [LLM Compressor #3151](https://github.com/vllm-project/llm-compressor/pull/3151),
+signed head `f80a16a`, are open, non-draft PRs at this check. Neither is merged.
+Their local CPU verification does not certify GPU training or model quality.
+
+The dated entries below retain their original observation times; they are not
+claims that earlier pending states remain current.
+
 ## 2026-09-09 — Speculators merge verified; three merged contributions
 
 [Speculators #1096](https://github.com/vllm-project/speculators/pull/1096), authored

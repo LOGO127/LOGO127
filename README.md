@@ -15,7 +15,7 @@ language models, with a growing focus on reliable inference and stateful agent A
 
 ---
 
-## ✅ Merged contributions · 3
+## ✅ Merged contributions · 4
 
 [vLLM-Omni #7065](https://github.com/vllm-project/vllm-omni/pull/7065) fixes Higgs Audio v3
 voice-clone token validation while preserving reference-audio placement across chunked
@@ -29,16 +29,20 @@ outputs. Approved and merged by project member `njzjz` on September 7, 2026 (UTC
 multi-engine evaluation undercount by summing per-position acceptance counters
 across engines. Approved and merged by `fynnsu` on September 8, 2026 (UTC).[^8]
 
+[MACE #1712](https://github.com/ACEsuit/mace/pull/1712) rejects HTML responses
+before caching model downloads. Approved and merged by `aacostadiaz` on
+September 9, 2026 (UTC).[^9]
+
 ## 🎯 Current contribution focus
 
 | Track | Engineering focus | Public work |
 | --- | --- | --- |
 | **Agentic API** | Bounded response sessions; continuation and storage contracts | [#257](https://github.com/vllm-project/agentic-api/pull/257) — draft; [#258](https://github.com/vllm-project/agentic-api/pull/258) — open[^2] |
 | **vLLM-Omni** | Audio diagnostics; request lifecycle and timeout correctness | [#7098](https://github.com/vllm-project/vllm-omni/pull/7098), [#7151](https://github.com/vllm-project/vllm-omni/pull/7151) — open[^3] |
-| **Vime** | Post-training data-source ordering and resume correctness | [Issue #414](https://github.com/vllm-project/vime/issues/414) — reported; local patch unpublished |
+| **Vime** | Post-training data-source ordering and resume correctness | [#416](https://github.com/vllm-project/vime/pull/416) — open; not yet accepted |
 | **XGrammar** | Structured-generation tool input validation | [#881](https://github.com/mlc-ai/xgrammar/pull/881) — draft; local regression verified, awaiting review[^7] |
 | **DeePMD-kit** | Ragged graph batching; charge/spin and numerical correctness | [#6008](https://github.com/deepmodeling/deepmd-kit/pull/6008) — open at last check[^4]; [#6010](https://github.com/deepmodeling/deepmd-kit/pull/6010) — merged[^6] |
-| **MACE** | Scientific model downloads and TorchScript export | [#1712](https://github.com/ACEsuit/mace/pull/1712) — approved, not merged; [#1717](https://github.com/ACEsuit/mace/pull/1717) — draft[^5] |
+| **MACE** | Scientific model downloads and TorchScript export | [#1712](https://github.com/ACEsuit/mace/pull/1712) — merged[^9]; [#1717](https://github.com/ACEsuit/mace/pull/1717) — draft at last check[^5] |
 
 These are contribution areas I am working toward maintaining, not assigned module
 ownership. Open and draft PRs are not accepted contributions. The
@@ -64,8 +68,9 @@ separates merged work, review candidates, and unpublished experiments.
 issue evidence shared, patch unpublished and personal review pending.
 
 [Case study: preserving Vime's sample stream across epochs](case-studies/vime-sample-cursor.md)
-— matched baseline/candidate tests and real cursor save/load; issue reported,
-human verification and upstream agreement pending, not an accepted fix.
+— matched baseline/candidate tests and real cursor save/load;
+[PR #416](https://github.com/vllm-project/vime/pull/416) is open after personal
+verification and sign-off; not an accepted fix.
 
 [Case study: validating an XGrammar parser-history regression](case-studies/xgrammar-parser-history.md)
 — attributed fork candidate with deterministic tests and bytewise mask comparisons;
@@ -73,7 +78,8 @@ upstream coordination pending, not merged.
 
 [Case study: checkpoint-save failure and distributed recovery](case-studies/llm-compressor-save-recovery.md)
 — real CPU/Gloo failure reproduction with a matched successful-save control;
-reported upstream, no fix or merge claimed.
+[PR #3151](https://github.com/vllm-project/llm-compressor/pull/3151) is open;
+upstream acceptance and GPU/NCCL coverage are not claimed.
 
 - Reproduce failures and preserve passing controls before changing behavior.
 - Keep patches scoped, with explicit dependency and compatibility boundaries.
@@ -90,7 +96,8 @@ reported upstream, no fix or merge claimed.
 [^2]: Agentic API. [Core session draft #257](https://github.com/vllm-project/agentic-api/pull/257), [typed Responses file validation #258](https://github.com/vllm-project/agentic-api/pull/258). Status checked September 6, 2026, 20:59 UTC; no WebSocket integration or module ownership is claimed.
 [^3]: vLLM-Omni. [Reference-audio diagnostics #7098](https://github.com/vllm-project/vllm-omni/pull/7098), [shared RPC deadline #7151](https://github.com/vllm-project/vllm-omni/pull/7151). Open at the same check.
 [^4]: DeePMD-kit. [Ragged charge/spin batching #6008](https://github.com/deepmodeling/deepmd-kit/pull/6008). Open at the September 6 check; #6010's later merge is recorded separately below.
-[^5]: MACE. [Model-download validation #1712](https://github.com/ACEsuit/mace/pull/1712) is approved but open; [gated-block TorchScript export #1717](https://github.com/ACEsuit/mace/pull/1717) is an open draft. Status checked September 8, 2026. Neither is counted as merged.
+[^5]: MACE. [Gated-block TorchScript export #1717](https://github.com/ACEsuit/mace/pull/1717) was an open draft at the September 8, 2026 check, not counted as merged. #1712's later merge is recorded in footnote 9.
 [^6]: DeePMD-kit. [Merge commit 28b7d068](https://github.com/deepmodeling/deepmd-kit/commit/28b7d068801716765ab8119257f814596e49a10c). Merged September 7, 2026, 22:14 UTC (September 8, 06:14 Asia/Shanghai); verified directly on September 8. This is an accepted contribution, not an assigned module-maintainer role.
 [^7]: XGrammar. [Malformed function-tool validation #881](https://github.com/mlc-ai/xgrammar/pull/881), head `a79fd29`, checked September 8, 2026. Draft publication is not upstream acceptance; local tests are not upstream CI.
 [^8]: Speculators. [Merge commit 04e08de9](https://github.com/vllm-project/speculators/commit/04e08de9a72e11776f8aad27de3fb97c2f2cc3f7). PR authored by `LOGO127`, merged September 8, 2026, 21:19 UTC (September 9, 05:19 Asia/Shanghai); verified September 9. This is an accepted contribution, not a module-maintainer appointment or a throughput benchmark.
+[^9]: MACE. [Merge commit 52302120](https://github.com/ACEsuit/mace/commit/5230212049b067e91ae74efb700f86d3c7cba098). PR authored by `LOGO127`, merged September 9, 2026, 10:37 UTC (18:37 Asia/Shanghai); verified directly. No module-maintainer appointment is implied.
