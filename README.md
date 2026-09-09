@@ -15,7 +15,7 @@ language models, with a growing focus on reliable inference and stateful agent A
 
 ---
 
-## ✅ Merged contributions
+## ✅ Merged contributions · 3
 
 [vLLM-Omni #7065](https://github.com/vllm-project/vllm-omni/pull/7065) fixes Higgs Audio v3
 voice-clone token validation while preserving reference-audio placement across chunked
@@ -24,6 +24,10 @@ prefill. Merged after collaborator review on September 4, 2026 (UTC).[^1]
 [DeePMD-kit #6010](https://github.com/deepmodeling/deepmd-kit/pull/6010) excludes virtual
 atoms from force, Hessian and spin-force error metrics while preserving padded detail
 outputs. Approved and merged by project member `njzjz` on September 7, 2026 (UTC).[^6]
+
+[Speculators #1096](https://github.com/vllm-project/speculators/pull/1096) fixes
+multi-engine evaluation undercount by summing per-position acceptance counters
+across engines. Approved and merged by `fynnsu` on September 8, 2026 (UTC).[^8]
 
 ## 🎯 Current contribution focus
 
@@ -89,3 +93,4 @@ reported upstream, no fix or merge claimed.
 [^5]: MACE. [Model-download validation #1712](https://github.com/ACEsuit/mace/pull/1712) is approved but open; [gated-block TorchScript export #1717](https://github.com/ACEsuit/mace/pull/1717) is an open draft. Status checked September 8, 2026. Neither is counted as merged.
 [^6]: DeePMD-kit. [Merge commit 28b7d068](https://github.com/deepmodeling/deepmd-kit/commit/28b7d068801716765ab8119257f814596e49a10c). Merged September 7, 2026, 22:14 UTC (September 8, 06:14 Asia/Shanghai); verified directly on September 8. This is an accepted contribution, not an assigned module-maintainer role.
 [^7]: XGrammar. [Malformed function-tool validation #881](https://github.com/mlc-ai/xgrammar/pull/881), head `a79fd29`, checked September 8, 2026. Draft publication is not upstream acceptance; local tests are not upstream CI.
+[^8]: Speculators. [Merge commit 04e08de9](https://github.com/vllm-project/speculators/commit/04e08de9a72e11776f8aad27de3fb97c2f2cc3f7). PR authored by `LOGO127`, merged September 8, 2026, 21:19 UTC (September 9, 05:19 Asia/Shanghai); verified September 9. This is an accepted contribution, not a module-maintainer appointment or a throughput benchmark.

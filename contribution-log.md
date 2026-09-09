@@ -2,6 +2,30 @@
 
 This log records work that an upstream maintainer can verify. Status labels are intentionally conservative.
 
+## 2026-09-09 — Speculators merge verified; three merged contributions
+
+[Speculators #1096](https://github.com/vllm-project/speculators/pull/1096), authored
+by `LOGO127`, was approved and merged by `fynnsu` on September 8 at 21:19 UTC
+(September 9 at 05:19 Asia/Shanghai). Merge commit:
+[`04e08de9`](https://github.com/vllm-project/speculators/commit/04e08de9a72e11776f8aad27de3fb97c2f2cc3f7).
+The fix sums per-position acceptance counters across engines rather than keeping
+the largest value. This corrects evaluation accounting; no inference speedup or
+new multi-GPU benchmark is claimed. AI assistance was disclosed in the PR.
+
+The verified merged set now comprises
+[vLLM-Omni #7065](https://github.com/vllm-project/vllm-omni/pull/7065),
+[DeePMD-kit #6010](https://github.com/deepmodeling/deepmd-kit/pull/6010), and
+[Speculators #1096](https://github.com/vllm-project/speculators/pull/1096).
+These are accepted contributions, not assigned module ownership.
+
+[LLM Compressor #3149](https://github.com/vllm-project/llm-compressor/issues/3149)
+remains an open issue assigned to `LOGO127`, not a published or merged PR. A local
+minimal `finally` candidate passed four CPU save/recovery checks, including
+two-rank Gloo failure and successful-save controls. Formal regression-test
+packaging, personal review and sign-off remain pending; GPU/NCCL validation is
+not claimed. This supersedes the earlier assignment-pending status below and
+does not add to the merged count.
+
 ## 2026-09-08 — Router queue deadline fix submitted
 
 [Issue #247](https://github.com/vllm-project/router/issues/247): an inner
