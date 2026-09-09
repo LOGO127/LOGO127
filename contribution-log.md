@@ -2,6 +2,26 @@
 
 This log records work that an upstream maintainer can verify. Status labels are intentionally conservative.
 
+## 2026-09-09 — ONNX Runtime merged; five verified upstream contributions
+
+[ONNX Runtime #32435](https://github.com/microsoft/onnxruntime/pull/32435),
+authored by `LOGO127`, was approved and merged by `xadupre` at 11:48 UTC
+(19:48 Asia/Shanghai). [Merge commit b905e946](https://github.com/microsoft/onnxruntime/commit/b905e946b7efee691fec7b81d82a25d0f7601803)
+prevents identity transposes from being absorbed by Gemm transpose fusion.
+Review follow-up added output and mixed input/output regression coverage,
+including preservation of Gemm attributes and input order.
+
+The published review reply records matched native CPU evidence: the mixed-path
+regression failed before the follow-up fix; afterwards all nine targeted tests
+passed, and the graph-transformation suite passed 402 tests with 15 skipped.
+These are local CPU results, not GPU coverage or an inference-speed claim.
+AI-assisted implementation and verification were disclosed in the PR.
+
+Together with vLLM-Omni #7065, DeePMD-kit #6010, Speculators #1096 and MACE #1712,
+this brings the verified upstream merge count to five. Self-repository merges
+are excluded; no core-maintainer role is claimed. Older dated counts below
+remain historical observations.
+
 ## 2026-09-09 — MACE merged; four verified upstream contributions
 
 [MACE #1712](https://github.com/ACEsuit/mace/pull/1712), authored by `LOGO127`,

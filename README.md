@@ -15,7 +15,7 @@ language models, with a growing focus on reliable inference and stateful agent A
 
 ---
 
-## ✅ Merged contributions · 4
+## ✅ Merged contributions · 5
 
 [vLLM-Omni #7065](https://github.com/vllm-project/vllm-omni/pull/7065) fixes Higgs Audio v3
 voice-clone token validation while preserving reference-audio placement across chunked
@@ -32,6 +32,11 @@ across engines. Approved and merged by `fynnsu` on September 8, 2026 (UTC).[^8]
 [MACE #1712](https://github.com/ACEsuit/mace/pull/1712) rejects HTML responses
 before caching model downloads. Approved and merged by `aacostadiaz` on
 September 9, 2026 (UTC).[^9]
+
+[ONNX Runtime #32435](https://github.com/microsoft/onnxruntime/pull/32435)
+prevents identity transposes from being incorrectly fused into Gemm, with
+regression coverage for input, output and mixed transpose paths. Approved and
+merged by `xadupre` on September 9, 2026 (UTC).[^10]
 
 ## 🎯 Current contribution focus
 
@@ -101,3 +106,4 @@ upstream acceptance and GPU/NCCL coverage are not claimed.
 [^7]: XGrammar. [Malformed function-tool validation #881](https://github.com/mlc-ai/xgrammar/pull/881), head `a79fd29`, checked September 8, 2026. Draft publication is not upstream acceptance; local tests are not upstream CI.
 [^8]: Speculators. [Merge commit 04e08de9](https://github.com/vllm-project/speculators/commit/04e08de9a72e11776f8aad27de3fb97c2f2cc3f7). PR authored by `LOGO127`, merged September 8, 2026, 21:19 UTC (September 9, 05:19 Asia/Shanghai); verified September 9. This is an accepted contribution, not a module-maintainer appointment or a throughput benchmark.
 [^9]: MACE. [Merge commit 52302120](https://github.com/ACEsuit/mace/commit/5230212049b067e91ae74efb700f86d3c7cba098). PR authored by `LOGO127`, merged September 9, 2026, 10:37 UTC (18:37 Asia/Shanghai); verified directly. No module-maintainer appointment is implied.
+[^10]: ONNX Runtime. [Merge commit b905e946](https://github.com/microsoft/onnxruntime/commit/b905e946b7efee691fec7b81d82a25d0f7601803). PR authored by `LOGO127`, merged September 9, 2026, 11:48 UTC (19:48 Asia/Shanghai); verified directly. This is a graph-optimizer correctness contribution, not a performance benchmark or a maintainer appointment.
