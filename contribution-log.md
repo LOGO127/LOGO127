@@ -2,6 +2,40 @@
 
 This log records work that an upstream maintainer can verify. Status labels are intentionally conservative.
 
+## 2026-09-12 — Eight verified upstream merges
+
+Current merged set: Agentic API #257 and #258, vLLM-Omni #7065,
+Speculators #1096, ONNX Runtime #32435, WebCodex #372, DeePMD-kit #6010,
+and MACE #1712. Self-repository PRs and other authors' PRs are excluded.
+Earlier dated entries retain their historical observation times.
+
+- [Agentic API #257](https://github.com/vllm-project/agentic-api/pull/257)
+  was approved and merged by `franciscojavierarceo` on September 11 at
+  19:18:34 UTC (September 12, 03:18:34 Asia/Shanghai).
+  [Merge commit 2509342d](https://github.com/vllm-project/agentic-api/commit/2509342dcbc12b89350cabdda17f7bb1a6b8a41b).
+  My contribution centers on bounded transient sessions, continuation history,
+  retention accounting, and cleanup. The final PR includes Francisco's WebSocket
+  integration and upstream contributions; these are not solely my work.
+  All 14 visible checks passed on the final PR head. This is not a claim of
+  complete #238 coverage or an assigned maintainer role.
+- [Agentic API #258](https://github.com/vllm-project/agentic-api/pull/258)
+  was merged on September 9 at 20:04:46 UTC.
+  [Merge commit 65e5227d](https://github.com/vllm-project/agentic-api/commit/65e5227d7ed65bc30fafe19bfe9e3cedbc0192ee).
+  It rejects unsupported message-file inputs on typed Responses paths, with
+  maintainer-contributed schema and validation changes; not file-content ingestion.
+- [WebCodex #372](https://github.com/yyjeqhc/webcodex/pull/372)
+  was merged on September 10 at 07:32:04 UTC.
+  [Merge commit 1c96d1ce](https://github.com/yyjeqhc/webcodex/commit/1c96d1ce58d0b46581ab77b610eadc9d5dec3328).
+  It waits for npm installer download streams to close before cleanup.
+
+Status corrections: [LLM Compressor #3151](https://github.com/vllm-project/llm-compressor/pull/3151)
+and [OpenAI Python #3790](https://github.com/openai/openai-python/pull/3790)
+are closed without merging, not awaiting approval. Agentic #257 is no longer
+an open draft. [Agentic #261](https://github.com/vllm-project/agentic-api/pull/261)
+is an open PR by Zheng-Lu incorporating my replay-catalog patch, not another
+authored or merged PR. Ongoing Omni and Vime work is linked from the README
+without counting pending work as accepted.
+
 ## 2026-09-09 — ONNX Runtime merged; five verified upstream contributions
 
 [ONNX Runtime #32435](https://github.com/microsoft/onnxruntime/pull/32435),

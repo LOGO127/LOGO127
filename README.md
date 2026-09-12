@@ -15,7 +15,21 @@ language models, with a growing focus on reliable inference and stateful agent A
 
 ---
 
-## ✅ Merged contributions · 5
+## ✅ Merged contributions · 8
+
+External PRs authored by me and merged upstream. Verified September 12, 2026.
+
+[Agentic API #257](https://github.com/vllm-project/agentic-api/pull/257) adds
+bounded transient response sessions, continuation history, retention accounting,
+and cancellation cleanup. Approved and merged September 11, 2026 (UTC).
+The final version includes maintainer-contributed WebSocket integration.
+
+[Agentic API #258](https://github.com/vllm-project/agentic-api/pull/258) rejects
+unsupported message-file inputs on typed Responses paths. Merged September 9,
+2026 (UTC), including maintainer-contributed schema and validation updates.
+
+[WebCodex #372](https://github.com/yyjeqhc/webcodex/pull/372) waits for npm
+installer download streams to close before cleanup. Merged September 10, 2026 (UTC).
 
 [vLLM-Omni #7065](https://github.com/vllm-project/vllm-omni/pull/7065) fixes Higgs Audio v3
 voice-clone token validation while preserving reference-audio placement across chunked
@@ -42,9 +56,9 @@ merged by `xadupre` on September 9, 2026 (UTC).[^10]
 
 | Track | Engineering focus | Public work |
 | --- | --- | --- |
-| **Agentic API** | Bounded response sessions; continuation and storage contracts | [#257](https://github.com/vllm-project/agentic-api/pull/257) — draft; [#258](https://github.com/vllm-project/agentic-api/pull/258) — open[^2] |
-| **vLLM-Omni** | Audio diagnostics; request lifecycle and timeout correctness | [#7098](https://github.com/vllm-project/vllm-omni/pull/7098), [#7151](https://github.com/vllm-project/vllm-omni/pull/7151) — open[^3] |
-| **Vime** | Post-training data-source ordering and resume correctness | [#416](https://github.com/vllm-project/vime/pull/416) — open; not yet accepted |
+| **Agentic API** | Bounded response sessions; continuation and storage contracts | [#257](https://github.com/vllm-project/agentic-api/pull/257), [#258](https://github.com/vllm-project/agentic-api/pull/258) — merged; replay-catalog collaboration in Zheng-Lu's [#261](https://github.com/vllm-project/agentic-api/pull/261) — open[^2] |
+| **vLLM-Omni** | Audio efficiency; duplex lifecycle; reproducible multi-session validation | [Mimi #7399](https://github.com/vllm-project/vllm-omni/pull/7399), [cancellation #7429](https://github.com/vllm-project/vllm-omni/pull/7429), [sample-rate snapshots #7448](https://github.com/vllm-project/vllm-omni/pull/7448) — open; [validation #7428](https://github.com/vllm-project/vllm-omni/pull/7428) — draft[^3] |
+| **Vime** | Post-training data ordering, resume correctness, and numerical precision | [cursor #416](https://github.com/vllm-project/vime/pull/416), [entropy #419](https://github.com/vllm-project/vime/pull/419), [RoPE #420](https://github.com/vllm-project/vime/pull/420) — open |
 | **XGrammar** | Structured-generation tool input validation | [#881](https://github.com/mlc-ai/xgrammar/pull/881) — draft; local regression verified, awaiting review[^7] |
 | **DeePMD-kit** | Ragged graph batching; charge/spin and numerical correctness | [#6008](https://github.com/deepmodeling/deepmd-kit/pull/6008) — open at last check[^4]; [#6010](https://github.com/deepmodeling/deepmd-kit/pull/6010) — merged[^6] |
 | **MACE** | Scientific model downloads and TorchScript export | [#1712](https://github.com/ACEsuit/mace/pull/1712) — merged[^9]; [#1717](https://github.com/ACEsuit/mace/pull/1717) — draft at last check[^5] |
@@ -83,13 +97,13 @@ upstream coordination pending, not merged.
 
 [Case study: checkpoint-save failure and distributed recovery](case-studies/llm-compressor-save-recovery.md)
 — real CPU/Gloo failure reproduction with a matched successful-save control;
-[PR #3151](https://github.com/vllm-project/llm-compressor/pull/3151) is open;
+[PR #3151](https://github.com/vllm-project/llm-compressor/pull/3151) closed without merging;
 upstream acceptance and GPU/NCCL coverage are not claimed.
 
 - Reproduce failures and preserve passing controls before changing behavior.
 - Keep patches scoped, with explicit dependency and compatibility boundaries.
 - Separate local tests, upstream CI, and actual model/hardware validation.
-- Disclose AI assistance and respond to review with reproducible evidence.
+- Explain design decisions and respond to review with reproducible evidence.
 
 `Python` · `Rust` · `PyTorch` · `pytest` · `Git` · `uv`
 
@@ -98,8 +112,8 @@ upstream acceptance and GPU/NCCL coverage are not claimed.
 <sub>Build the smallest useful version. Test the assumptions. Explain what happened.</sub>
 
 [^1]: vLLM-Omni. [Merged PR #7065](https://github.com/vllm-project/vllm-omni/pull/7065).
-[^2]: Agentic API. [Core session draft #257](https://github.com/vllm-project/agentic-api/pull/257), [typed Responses file validation #258](https://github.com/vllm-project/agentic-api/pull/258). Status checked September 6, 2026, 20:59 UTC; no WebSocket integration or module ownership is claimed.
-[^3]: vLLM-Omni. [Reference-audio diagnostics #7098](https://github.com/vllm-project/vllm-omni/pull/7098), [shared RPC deadline #7151](https://github.com/vllm-project/vllm-omni/pull/7151). Open at the same check.
+[^2]: Agentic API. [Sessions #257](https://github.com/vllm-project/agentic-api/pull/257) and [typed Responses file validation #258](https://github.com/vllm-project/agentic-api/pull/258) are merged, verified September 12, 2026. Final integration includes other contributors' work; sole authorship of every merged line, complete #238 coverage, and module ownership are not claimed. #261 is another author's PR and is not included in my authored merge count.
+[^3]: vLLM-Omni. Current statuses checked September 12, 2026. [Reference-audio diagnostics #7098](https://github.com/vllm-project/vllm-omni/pull/7098) and [shared RPC deadline #7151](https://github.com/vllm-project/vllm-omni/pull/7151) also remain open. Passing build/documentation checks are not full GPU/model validation.
 [^4]: DeePMD-kit. [Ragged charge/spin batching #6008](https://github.com/deepmodeling/deepmd-kit/pull/6008). Open at the September 6 check; #6010's later merge is recorded separately below.
 [^5]: MACE. [Gated-block TorchScript export #1717](https://github.com/ACEsuit/mace/pull/1717) was an open draft at the September 8, 2026 check, not counted as merged. #1712's later merge is recorded in footnote 9.
 [^6]: DeePMD-kit. [Merge commit 28b7d068](https://github.com/deepmodeling/deepmd-kit/commit/28b7d068801716765ab8119257f814596e49a10c). Merged September 7, 2026, 22:14 UTC (September 8, 06:14 Asia/Shanghai); verified directly on September 8. This is an accepted contribution, not an assigned module-maintainer role.
